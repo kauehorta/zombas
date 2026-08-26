@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zombas-manual.khorta.chatgpt.site"),
+  metadataBase: new URL("https://kauehorta.github.io/zombas/"),
   title: {
     default: "Zombas | Manual do sobrevivente",
     template: "%s | Zombas",
   },
   description:
-    "Guia público do Zombas para sobreviver aos primeiros dias, reencontrar o grupo e continuar depois de uma morte ruim.",
+    "Guia prático do Zombas: primeiros dias, progressão, mods, regras e como continuar depois de uma morte ruim.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     siteName: "Zombas",
     title: "Zombas | Manual do sobrevivente",
     description:
-      "Skills, sobrevivência, veículos, cozinha, regras e tudo que você queria saber antes da próxima morte ruim.",
+      "O básico do Zombas para não morrer por falta de informação. O excesso de confiança fica por sua conta.",
     url: "/",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Zombas, Manual do sobrevivente" }],
   },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Zombas | Manual do sobrevivente",
     description:
-      "Skills, sobrevivência, veículos, cozinha, regras e tudo que você queria saber antes da próxima morte ruim.",
+      "O básico do Zombas para não morrer por falta de informação. O excesso de confiança fica por sua conta.",
     images: ["/og.png"],
   },
 };
