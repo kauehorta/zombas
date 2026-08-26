@@ -3,6 +3,7 @@ node_modules/
 .vinext/
 .wrangler/
 dist/
+.github-pages-dist/
 .env*
 *.log
 

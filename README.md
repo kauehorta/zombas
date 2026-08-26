@@ -1,9 +1,9 @@
-# Zombas
+# Zombas — Manual do sobrevivente
 
-Guia público do servidor cooperativo Zombas, com primeiros passos, progressão, combate, cozinha, veículos, base, regras e a lista atual de mods.
+Guia público do servidor cooperativo Zombas, com primeiros passos, progressão, mecânicas dos mods, regras e a lista atual de mods.
 
-- Site público: https://zombas-manual.khorta.chatgpt.site/
-- GitHub Pages: https://kauehorta.github.io/zombas/
-- Coleção Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=3790189787
+- Site: https://kauehorta.github.io/zombas/
+- Regras: https://kauehorta.github.io/zombas/regras/
+- Mods atuais: https://kauehorta.github.io/zombas/mods/
 
-O código do site está neste repositório. A publicação principal usa OpenAI Sites; o GitHub Pages encaminha para a versão atual.
+O repositório contém o código-fonte e a versão estática servida diretamente pelo GitHub Pages.
