@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guia do Zombas: sobreviva aos primeiros dias, entenda o diário e construa uma história com a turma.">
+  <title>Zombas | Manual do sobrevivente</title>
+  <style>
+    :root {
+      --paper: #f2eee5;
+      --paper-deep: #e4dccd;
+      --ink: #1d211c;
+      --muted: #5f6259;
+      --rust: #a33d28;
+      --rust-deep: #7d281b;
+      --moss: #4e6040;
+      --night: #172018;
+      --line: #c8bfaf;
+      --gold: #c38a31;
+      --card: #fbf8f1;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-underline-offset: 3px; }
+    a:hover { color: var(--rust); }
+    .skip { position: absolute; left: -999px; top: 0; }
+    .skip:focus { left: 1rem; top: 1rem; z-index: 20; background: var(--paper); padding: .6rem .8rem; }
+
+    .hero {
+      background: radial-gradient(circle at 75% 15%, #536748 0, transparent 31%), linear-gradient(130deg, #141a15 0%, #263426 55%, #394933 100%);
+      color: #faf5e9;
+      min-height: 530px;
+      padding: 1.4rem max(1.25rem, calc((100vw - 1180px) / 2));
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10vw -18vw auto;
+      width: 48vw;
+      height: 48vw;
+      border: 1px solid rgba(250,245,233,.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 42px rgba(250,245,233,.04), 0 0 0 84px rgba(250,245,233,.03);
+    }
+    .topbar, .hero-copy, .content-grid, .footer-inner { max-width: 1180px; margin: auto; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+    .brand { text-decoration: none; text-transform: uppercase; letter-spacing: .17em; font-size: .84rem; font-weight: 800; }
+    .status { border: 1px solid rgba(250,245,233,.45); border-radius: 99px; padding: .25rem .65rem; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+    .hero-copy { padding-top: clamp(4rem, 10vw, 8rem); position: relative; z-index: 1; }
+    .eyebrow { color: #edbd71; font-size: .8rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2, h3 { font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; font-weight: 400; line-height: .95; letter-spacing: .025em; }
+    h1 { font-size: clamp(4.4rem, 13vw, 9.5rem); margin: .45rem 0 1rem; text-transform: uppercase; }
+    .hero p { max-width: 690px; font-size: clamp(1.05rem, 2vw, 1.32rem); margin: 0; color: #eee9db; }
+    .hero-actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: .72rem 1rem; text-decoration: none; font-weight: 800; border: 1px solid transparent; }
+    .button.primary { background: var(--rust); color: #fffaf0; }
+    .button.primary:hover { background: #c84e35; color: #fffaf0; }
+    .button.secondary { border-color: rgba(255,255,255,.55); color: #fffaf0; }
+    .button.secondary:hover { border-color: #fffaf0; color: #fffaf0; }
+
+    .connection { max-width: 1180px; margin: -2.2rem auto 0; padding: 0 1.25rem; position: relative; z-index: 2; }
+    .connection-card { background: var(--rust); color: #fffaf0; display: grid; grid-template-columns: 1.6fr .7fr .8fr; gap: 1rem; padding: 1.35rem 1.5rem; box-shadow: 8px 8px 0 rgba(23,32,24,.18); }
+    .connection-card span { display: block; font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: #f2c6b7; }
+    .connection-card strong { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: clamp(1.05rem, 2vw, 1.35rem); }
+
+    .layout { max-width: 1180px; padding: 4.5rem 1.25rem 6rem; margin: auto; }
+    .content-grid { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); }
+    .toc { position: sticky; top: 1.5rem; align-self: start; border-top: 4px solid var(--moss); padding-top: .7rem; }
+    .toc p { color: var(--muted); font-size: .82rem; margin: .2rem 0 .55rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; }
+    .toc a { display: block; color: var(--ink); padding: .35rem 0; text-decoration: none; border-bottom: 1px solid var(--line); font-size: .94rem; }
+    .toc a:hover { color: var(--rust); padding-left: .25rem; }
+    main { min-width: 0; }
+    section { scroll-margin-top: 1.5rem; padding-bottom: 4.6rem; }
+    section + section { border-top: 1px solid var(--line); padding-top: 4.6rem; }
+    h2 { color: var(--rust-deep); font-size: clamp(2.7rem, 6vw, 5rem); text-transform: uppercase; margin: 0 0 .6rem; }
+    h3 { color: var(--moss); font-size: 1.7rem; margin: 2.5rem 0 .65rem; }
+    p { max-width: 760px; margin: 0 0 1rem; }
+    .lead { color: var(--muted); font-size: 1.15rem; max-width: 700px; }
+    .kicker { color: var(--rust); font-weight: 800; font-size: .8rem; text-transform: uppercase; letter-spacing: .13em; }
+    .section-link { font-size: .85rem; color: var(--muted); }
+
+    .quick-grid, .card-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.5rem; }
+    .quick, .card { background: var(--card); border: 1px solid var(--line); padding: 1.25rem; box-shadow: 4px 4px 0 var(--paper-deep); }
+    .quick b, .card b { display: block; color: var(--rust-deep); font-size: .77rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .45rem; }
+    .quick p, .card p { margin: 0; font-size: .94rem; }
+    .timeline { list-style: none; padding: 0; margin: 1.8rem 0 0; counter-reset: step; }
+    .timeline li { counter-increment: step; border-left: 3px solid var(--moss); padding: 0 0 1.25rem 1.25rem; margin-left: .65rem; position: relative; }
+    .timeline li::before { content: counter(step); position: absolute; left: -1.06rem; top: -.1rem; width: 1.85rem; height: 1.85rem; display: grid; place-items: center; border-radius: 50%; background: var(--moss); color: #fff; font-weight: 800; font-size: .85rem; }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline strong { display: block; }
+
+    .warning { background: var(--rust); color: #fffaf0; padding: 1.4rem 1.5rem; margin: 2rem 0; box-shadow: 6px 6px 0 #6d2116; }
+    .warning h3 { color: #fffaf0; margin-top: 0; }
+    .warning p { margin-bottom: 0; }
+    .tip { border-left: 5px solid var(--gold); padding: .8rem 1.15rem; background: #f7ead2; margin: 1.7rem 0; }
+    .tip strong { color: #784710; }
+    .lore { background: var(--night); color: #eee9db; padding: 1.6rem; margin: 2.2rem 0; }
+    .lore .kicker { color: #edbd71; }
+    .lore p { margin-bottom: 0; }
+
+    details { border-bottom: 1px solid var(--line); padding: .25rem 0; }
+    summary { cursor: pointer; list-style: none; font-weight: 800; padding: .8rem .1rem; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: "+"; color: var(--rust); display: inline-block; font-size: 1.3rem; width: 1.5rem; }
+    details[open] summary::before { content: "−"; }
+    details > div { padding: 0 1.6rem 1rem; }
+    details p:last-child { margin-bottom: 0; }
+    ul.clean { padding-left: 1.2rem; max-width: 760px; }
+    ul.clean li { margin: .45rem 0; }
+
+    .footer { background: var(--night); color: #e9e3d5; padding: 2.5rem 1.25rem; }
+    .footer-inner { display: flex; gap: 1rem; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .footer p { margin: 0; font-size: .9rem; }
+    .footer a { color: #edbd71; }
+
+    @media (max-width: 760px) {
+      .hero { min-height: 475px; }
+      .connection-card { grid-template-columns: 1fr 1fr; }
+      .connection-card > :first-child { grid-column: 1 / -1; }
+      .content-grid { display: block; }
+      .toc { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 0 .8rem; margin-bottom: 3rem; }
+      .toc p { grid-column: 1 / -1; }
+      .quick-grid, .card-grid { grid-template-columns: 1fr; }
+      section { padding-bottom: 3.4rem; }
+      section + section { padding-top: 3.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o guia</a>
+  <header class="hero">
+    <div class="topbar">
+      <a class="brand" href="#topo">Zombas</a>
+      <span class="status">Manual do sobrevivente</span>
+    </div>
+    <div class="hero-copy" id="topo">
+      <div class="eyebrow">Muldraugh, Kentucky</div>
+      <h1>Fica vivo.</h1>
+      <p>Um guia para chegar na primeira noite, sobreviver à primeira semana e não descobrir os sistemas importantes depois de já ter morrido por causa deles.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#primeira-hora">Começar pela primeira hora</a>
+        <a class="button secondary" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3790189787">Assinar coleção de mods</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="connection" aria-label="Como conectar">
+    <div class="connection-card">
+      <div><span>Endereço</span><strong>zombas.bounceme.net</strong></div>
+      <div><span>Porta</span><strong>16261</strong></div>
+      <div><span>Senha</span><strong>peça no grupo</strong></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="content-grid">
+      <nav class="toc" aria-label="Índice do guia">
+        <p>Índice</p>
+        <a href="#primeira-hora">Primeira hora</a>
+        <a href="#combate">Combate</a>
+        <a href="#mundo">O mundo</a>
+        <a href="#diario">Diário e morte</a>
+        <a href="#base">Base e semanas</a>
+        <a href="#grupo">Grupo e convivência</a>
+        <a href="#perguntas">Perguntas rápidas</a>
+      </nav>
+
+      <main id="conteudo">
+        <section id="primeira-hora">
+          <div class="kicker">Leia isto antes de entrar</div>
+          <h2>A primeira hora</h2>
+          <p class="lead">O primeiro objetivo não é uma casa bonita, uma arma rara ou uma excursão até a loja de armas. É continuar vivo tempo suficiente para conhecer o mapa e encontrar gente.</p>
+          <div class="warning">
+            <h3>A tecla K precisa de atenção</h3>
+            <p>Dois mods usam K. <strong>This Is Your Life</strong> abre o diário do sobrevivente e <strong>True Smoking</strong> tenta acender cigarro. Mude uma delas antes da primeira sessão: <strong>Options → Key Bindings → This Is Your Life</strong> ou <strong>Mod Options → True Smoking → Smoke</strong>.</p>
+          </div>
+          <ol class="timeline">
+            <li><strong>Deixe os mods acabarem.</strong> Assine a coleção inteira de uma vez e espere o Steam terminar. Arquivo faltando resulta em kick, não em boa vontade do servidor.</li>
+            <li><strong>Vasculhe a casa inicial.</strong> Mochila, comida, remédio e uma arma branca útil já mudam a primeira saída.</li>
+            <li><strong>Avise onde nasceu.</strong> Encontrar o grupo vale mais que sair sozinho com um saco cheio de coisas que você talvez nem consiga levar de volta.</li>
+            <li><strong>Faça a leitura do diário cedo.</strong> Ele é a rede de segurança das suas perícias. A seção completa está <a href="#diario">aqui</a>.</li>
+          </ol>
+          <div class="tip"><strong>Regra de bolso:</strong> quintal, fundos de terreno e cerca baixa costumam dar mais opções de fuga que o meio da rua. Antes de pular, olhe onde vai cair.</div>
+        </section>
+
+        <section id="combate">
+          <div class="kicker">Antes de querer resolver tudo no machado</div>
+          <h2>Briga de rua</h2>
+          <p class="lead">Um zumbi é um problema. Dois são uma aula. Uma horda é um pedido para sair dali.</p>
+          <div class="quick-grid">
+            <article class="quick"><b>Espaço primeiro</b><p>Empurre quando alguém encostar. Derrubar e pisar só funciona quando você já olhou o entorno.</p></article>
+            <article class="quick"><b>Lute de frente</b><p>O ataque pelas costas é especialmente perigoso. Reposicione antes de bater, mesmo que o orgulho reclame.</p></article>
+            <article class="quick"><b>Multi-hit existe</b><p>Uma arma branca pode pegar mais de um infectado no golpe. Ajuda contra um grupinho, não é salvo-conduto para uma multidão.</p></article>
+            <article class="quick"><b>Golpe prende você</b><p>Balançar arma trava o movimento por um instante. Se alguém já está colado, abrir espaço costuma ser mais útil que atacar.</p></article>
+          </div>
+          <h3>Furtividade compra segundos</h3>
+          <p>Andar agachado reduz sua presença. Aqui também dá para se deitar, e a posição melhora a pontaria. Isso serve para escolher um tiro muito bem colocado, não para abrir tiroteio em plena avenida. Barulho chama atenção e costuma cobrar a conta depois.</p>
+          <details><summary>O que faço quando atrai gente demais?</summary><div><p>Quebre a linha de visão. Passe pelo fundo de um lote, contorne uma casa, pule uma cerca apenas se houver saída no outro lado. Não transforme a porta da futura base em arena. Se o grupo se dividiu, avise pelo chat antes de inventar um plano genial sozinho.</p></div></details>
+          <details><summary>Porta trancada é um desafio ou um aviso?</summary><div><p>Depende. Pé-de-cabra abre porta comum, janela e portão de garagem. Lockpick não abre janela e grade metálica de delegacia não cede a nenhum dos dois. Uma casa com alarme pode transformar uma busca curta em passeio com cinquenta convidados.</p></div></details>
+          <div class="lore"><div class="kicker">Nota da estrada</div><p>O barulho é traiçoeiro porque não chega na hora. Você atira, olha em volta, conclui que deu certo. Dois minutos depois, a rua que parecia vazia volta com amigos. É assim que uma vitória pequena vira um cortejo fúnebre.</p></div>
+        </section>
+
+        <section id="mundo">
+          <div class="kicker">O servidor não começa devagar</div>
+          <h2>O mundo lá fora</h2>
+          <p class="lead">A cidade já está cheia no dia 1 e fica mais pesada até o dia 35. A maioria se arrasta. Uma pequena parcela corre de verdade. Basta uma delas para arruinar sua certeza de que sabe medir distância.</p>
+          <div class="card-grid">
+            <article class="card"><b>Escolha de origem</b><p>A cidade natal já aparece no mapa e dá avanço em perícias compatíveis. Combinem a região para não passar a noite inaugural procurando cada um num canto.</p></article>
+            <article class="card"><b>Comida é projeto</b><p>Loot é escasso. Horta e animais entram no planejamento cedo, porque planta cresce no ritmo dela e bicho faminto não ajuda ninguém.</p></article>
+            <article class="card"><b>Bandits existem</b><p>Grupos hostis rondam, mexem em propriedade e gostam do escuro. Aviso visual ajuda somente quem estiver olhando para a tela.</p></article>
+            <article class="card"><b>Arma não é munição</b><p>Armas de fogo aparecem com mais facilidade que bala. Um revólver achado é promessa, não solução.</p></article>
+          </div>
+          <h3>Planeje a mudança de estação</h3>
+          <p>Água e energia começam a falhar por volta do dia 15. Perto do dia 30, a interrupção fica definitiva. Guardar recipientes, montar captação de chuva e descobrir como será a energia da base antes disso é trabalho de quem prefere não beber desespero no balde.</p>
+          <details><summary>O que muda à noite?</summary><div><p>O sono é necessário e o tempo acelera quando todos colaboram. Avise no chat, recolha-se e deixe a noite terminar. Uma pessoa passeando de madrugada segura o relógio de todo mundo.</p></div></details>
+        </section>
+
+        <section id="diario">
+          <div class="kicker">A seção que merece ser lida cedo</div>
+          <h2>Morrer não apaga tudo</h2>
+          <p class="lead">O <strong>Bound Journal</strong> guarda o aprendizado do personagem. A morte continua custando posição, equipamento e tempo. O diário evita que ela também apague as perícias que você passou a semana treinando.</p>
+          <div class="quick-grid">
+            <article class="quick"><b>1. Fabrique</b><p>Use um caderno, cola, três tiras de couro e uma linha. A receita é <strong>Bind Journal Together</strong>.</p></article>
+            <article class="quick"><b>2. Transcreva</b><p>Com ele em mãos, botão direito e <strong>Transcribe Into Journal</strong>. Faça de novo quando subir algo importante.</p></article>
+            <article class="quick"><b>3. Encontre depois</b><p>O personagem novo precisa localizar o diário no corpo anterior ou no lugar onde você o guardou.</p></article>
+            <article class="quick"><b>4. Leia</b><p>As perícias registradas voltam. O diário não é destruído na leitura, então vale cuidar dele.</p></article>
+          </div>
+          <details><summary>O que o diário não devolve?</summary><div><p>Força, Condicionamento, XP de televisão e vídeo, além dos níveis iniciais dados por profissão ou traço. Quem escolhe Analfabeto também não pode usar o sistema. E ele só recupera o que foi transcrito antes da morte.</p></div></details>
+          <details><summary>O diário da tecla K faz a mesma coisa?</summary><div><p>Não. O de K é o diário do sobrevivente, feito para histórico, ferimentos e anotações pessoais. O Bound Journal é o item físico de recuperação de perícias. Dois cadernos, duas utilidades, grande chance de confundir na primeira semana.</p></div></details>
+        </section>
+
+        <section id="base">
+          <div class="kicker">Semana dois começa antes do que parece</div>
+          <h2>Base, água e rotina</h2>
+          <p class="lead">A primeira base deve ser simples de entender, fácil de sair e próxima do que você pretende fazer. Casa bonita sem rota de fuga é só uma caixa decorada.</p>
+          <h3>Escolhendo a primeira casa</h3>
+          <ul class="clean">
+            <li>Prefira uma residência que você consiga conhecer inteira em poucos segundos.</li>
+            <li>Cubra janelas com lençóis, mas deixe uma rota de saída planejada.</li>
+            <li>Barrique depois de limpar a área. Janela é risco, mas pode virar a fuga que salva a noite.</li>
+            <li>Gerador fica do lado de fora. Ele também pode alimentar a bomba de um posto se estiver numa área externa.</li>
+          </ul>
+          <h3>Comida e transporte</h3>
+          <p>Carrinho de mão ou carrinho de supermercado muda a mudança de base porque reduz muito o peso carregado. Carro bom é raro, então avise antes de emprestar. Para comida, alguém precisa assumir água, plantio ou os animais com antecedência. Não espere a despensa ficar vazia para descobrir que uma horta não tem pressa.</p>
+          <details><summary>Onde entra leitura?</summary><div><p>Ler é bem mais rápido aqui que no jogo padrão e ficar sentado acelera mais um pouco. Chuva, recuperação e noite tranquila são bons momentos para livro. Ler no corredor de uma casa ainda cheia de vizinhos não é um hobby, é uma escolha de vida curta.</p></div></details>
+        </section>
+
+        <section id="grupo">
+          <div class="kicker">Coop funciona quando o grupo se enxerga</div>
+          <h2>Facção e convivência</h2>
+          <p class="lead">O User Panel reúne a parte social. Ele fica na barra de ícones ao lado dos itens equipados, no canto inferior da tela. É um botão discreto para uma tela que resolve metade das dúvidas iniciais.</p>
+          <div class="card-grid">
+            <article class="card"><b>Facção</b><p>Crie no User Panel, convide e espere a pessoa aceitar. O mapa mostra quem está na mesma facção ou compartilha safehouse com você.</p></article>
+            <article class="card"><b>Safehouse</b><p>Depois de sobreviver um dia, reivindique uma residência pelo menu de contexto. Galpão, delegacia e loja permanecem disputados.</p></article>
+            <article class="card"><b>PVP</b><p>Está ligado com trava de segurança. A caveira indica a decisão de entrar em combate deliberado. Machadada perto de amigo não deveria virar acidente.</p></article>
+            <article class="card"><b>Base abandonada</b><p>Visite a safehouse. A ausência por seis dias reais remove a reivindicação e deixa o mapa respirar.</p></article>
+          </div>
+          <h3>O combinado que evita a maior parte do drama</h3>
+          <p>Não pegue da base dos outros sem combinar. Avise se levar carro. Fale antes de mudar gerador, plantação ou estoque coletivo. O servidor é difícil de propósito; criar dificuldade social extra seria um mod muito ruim.</p>
+          <p class="section-link"><a href="regras.html">Ler regras completas do servidor</a></p>
+        </section>
+
+        <section id="perguntas">
+          <div class="kicker">Consulta rápida</div>
+          <h2>Perguntas que aparecem toda semana</h2>
+          <details><summary>Por que tomei kick ao tentar entrar?</summary><div><p>Quase sempre são mods incompletos ou desatualizados. Volte à coleção, confirme o download e tente depois. O servidor compara seus arquivos aos dele.</p></div></details>
+          <details><summary>Como vejo meus amigos no mapa?</summary><div><p>Entre na mesma facção ou compartilhe uma safehouse. Ser amigo na Steam não coloca ninguém no mapa do jogo.</p></div></details>
+          <details><summary>Posso pedir item, XP ou teleporte a admin?</summary><div><p>Não como atalho de jogo. Administração serve para corrigir problema real, como item perdido em queda de conexão ou personagem preso em geometria.</p></div></details>
+          <details><summary>O servidor caiu?</summary><div><p>Atualizações de mod avisam no chat e iniciam uma contagem de quinze minutos antes de reiniciar. Recolha-se quando o aviso aparecer. É rotina, não castigo.</p></div></details>
+          <div class="lore"><div class="kicker">Uma última coisa</div><p>Quase toda morte parece evitável olhando depois. Isso é normal. Aprenda com a história, recupere o diário, encontre o grupo e tente não repetir exatamente a mesma cena amanhã.</p></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong>Zombas</strong> · servidor cooperativo em português para uma campanha longa.</p>
+      <a href="#topo">Voltar ao começo ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
