@@ -105,9 +105,6 @@ export default function NovatosPage() {
       <div className="page-shell guide-page-shell">
         <aside>
           <GuideNavigation />
-          <p className="side-note">
-            Comece pela seção que resolve sua dúvida. No celular, o mesmo índice abre logo acima do guia.
-          </p>
         </aside>
 
       <main className="rules-page guide-page" id="novatos-conteudo">

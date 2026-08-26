@@ -241,6 +241,22 @@ h1 {
   text-decoration: none;
 }
 
+.button::after {
+  content: "→";
+  margin-left: 0.55rem;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 160ms ease;
+}
+
+.button[target="_blank"]::after {
+  content: "↗";
+}
+
+.button:hover::after {
+  transform: translateX(2px);
+}
+
 .button-primary {
   background: var(--rust);
   color: var(--white);

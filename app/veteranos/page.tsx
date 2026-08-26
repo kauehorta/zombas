@@ -94,9 +94,6 @@ export default function VeteranosPage() {
       <div className="page-shell guide-page-shell">
         <aside>
           <GuideNavigation />
-          <p className="side-note">
-            Use o índice para pular direto para o sistema que está segurando a campanha agora.
-          </p>
         </aside>
 
       <main className="rules-page guide-page" id="veteranos-conteudo">
