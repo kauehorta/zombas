@@ -107,7 +107,8 @@ export default function Home() {
           <p className="micro-label" id="conectar-titulo">Como conectar</p>
           <p>
             Assine a coleção antes de entrar ou deixe o jogo baixar os mods na primeira conexão.
-            Na primeira vez pode demorar; é download, não necessariamente travamento.
+            Na primeira conexão a tela pode ficar parada por alguns minutos enquanto os mods
+            baixam. Não feche o jogo nessa hora.
           </p>
         </div>
         <dl>

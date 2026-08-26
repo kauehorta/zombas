@@ -19,7 +19,7 @@ if (Test-Path -LiteralPath $outputPath) {
 New-Item -ItemType Directory -Path $outputPath | Out-Null
 New-Item -ItemType Directory -Path (Join-Path $outputPath 'assets') | Out-Null
 
-$sourceCss = Get-Content -LiteralPath (Join-Path $siteRoot 'app\globals.css') -Raw
+$sourceCss = Get-Content -LiteralPath (Join-Path $siteRoot 'app\globals.css') -Raw -Encoding UTF8
 $staticCss = $sourceCss.Replace('url("/assets/hero-zombas.webp")', 'url("./hero-zombas.webp")')
 Set-Content -LiteralPath (Join-Path $outputPath 'assets\site.css') -Value $staticCss -Encoding utf8
 
