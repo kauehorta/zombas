@@ -127,7 +127,7 @@ export default function NovatosPage() {
               <li><strong>Espaço</strong> empurra um zumbi adjacente. É sua ferramenta defensiva mais importante antes de ter uma arma confiável.</li>
               <li><strong>Shift</strong> segurado ativa a corrida, enquanto durar o condicionamento.</li>
               <li><strong>Ctrl</strong> alterna agachar, que reduz sua presença e melhora a pontaria deitado.</li>
-              <li><strong>Tab</strong> abre o inventário; <strong>I</strong> abre o painel de fabricação unificado.</li>
+              <li><strong>I</strong> abre o inventário; <strong>B</strong> abre o painel de fabricação unificado. (Trocou de lugar desde o Build 41: lá era Tab pro inventário.)</li>
               <li><strong>H</strong> abre o painel de saúde pra enfaixar, entalar e desinfetar.</li>
               <li><strong>M</strong> abre o mapa do mundo.</li>
             </ul>
@@ -280,6 +280,22 @@ export default function NovatosPage() {
             Tudo acima é sobre sobreviver um encontro individual. Defender uma base contra um grupo, ou
             decidir se vale lutar com um personagem já bem equipado, é assunto do{" "}
             <a className="text-link" href="/veteranos#combate">guia do veterano</a>.
+          </div>
+
+          <div className="critical">
+            <div className="critical-tag">Conflito de atalho</div>
+            <h3>A tecla U também é dividida</h3>
+            <p>
+              <strong>Gunworks</strong>, a base do Guns of Marz, usa U para alternar o acessório sob o
+              cano da arma. <strong>Lethal Stealth</strong> usa a mesma tecla pra deitar e levantar.
+              Combinando os dois mods, tentar trocar de acessório no meio de um tiroteio pode te
+              derrubar no chão em vez disso.
+            </p>
+            <ol>
+              <li>Abra <strong>Options</strong> e depois <strong>Key Bindings</strong>.</li>
+              <li>Procure os atalhos de <strong>Gunworks</strong> e <strong>Lethal Stealth</strong>.</li>
+              <li>Mude uma das duas teclas antes de sair de casa com uma arma equipada.</li>
+            </ol>
           </div>
 
           <details>
