@@ -26,6 +26,10 @@ function Navigation({ mobile = false }: { mobile?: boolean }) {
         <span>11</span>
         Regras do servidor
       </a>
+      <a href="/mods">
+        <span>12</span>
+        Mods atuais
+      </a>
     </>
   );
 
@@ -40,7 +44,7 @@ function Navigation({ mobile = false }: { mobile?: boolean }) {
 
   return (
     <nav className="desktop-nav" aria-label="Índice do guia">
-      <p>Abra na dúvida</p>
+      <p>Índice</p>
       {links}
     </nav>
   );
@@ -73,24 +77,25 @@ export default function Home() {
           <a className="brand" href="#topo" aria-label="Zombas, voltar ao topo">
             Zombas
           </a>
-          <a className="rules-link" href="/regras">
-            Regras do servidor
-          </a>
+          <nav className="top-links" aria-label="Páginas do site">
+            <a className="rules-link" href="/mods">Mods atuais</a>
+            <a className="rules-link" href="/regras">Regras do servidor</a>
+          </nav>
         </div>
 
         <div className="hero-copy">
           <p className="eyebrow">Manual do sobrevivente</p>
           <h1>Fica vivo.<br />Fica junto.</h1>
           <p className="hero-lead">
-            Coop difícil, uma cidade que piora com o tempo e uma campanha feita para durar meses.
-            Aqui, morrer custa caro. Sumir do grupo custa mais.
+            Guia do servidor cooperativo Zombas: primeiros passos, progressão, combate, cozinha,
+            veículos, base e convivência.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#primeira-hora">
-              Começar pela primeira hora
+              Primeira hora
             </a>
             <a className="button button-ghost" href={steamCollection} target="_blank" rel="noreferrer">
-              Abrir coleção Steam
+              Coleção Steam
             </a>
           </div>
         </div>
@@ -99,7 +104,7 @@ export default function Home() {
       <section className="connection" aria-labelledby="conectar-titulo">
         <div className="connection-copy">
           <p className="micro-label" id="conectar-titulo">Como conectar</p>
-          <p>Assine a coleção inteira e espere o Steam terminar antes de abrir o servidor.</p>
+          <p>Baixe a coleção antes de entrar ou deixe o jogo baixar os mods na primeira conexão.</p>
         </div>
         <dl>
           <div>
@@ -122,7 +127,7 @@ export default function Home() {
       <div className="page-shell">
         <aside>
           <Navigation />
-          <p className="side-note">Para voltar depois de semanas sem jogar, comece pelo índice. O apocalipse não exige leitura linear.</p>
+          <p className="side-note">Use o índice para consultar apenas a parte do guia que você precisa.</p>
         </aside>
 
         <main id="conteudo">
@@ -131,8 +136,8 @@ export default function Home() {
             <p className="kicker">Antes da primeira rua</p>
             <h2>A primeira hora</h2>
             <p className="lead">
-              Seu primeiro objetivo não é achar a arma perfeita. É sobreviver o suficiente para se
-              localizar, avisar onde nasceu e encontrar gente.
+              Na primeira hora, localize-se, avise ao grupo onde nasceu e separe água, comida,
+              curativo, mochila e uma arma simples.
             </p>
 
             <SectionArt
@@ -141,28 +146,29 @@ export default function Home() {
             />
 
             <div className="critical">
-              <div className="critical-tag">Ajuste antes de jogar</div>
-              <h3>A tecla K tem dois donos</h3>
+              <div className="critical-tag">Conflito de atalho</div>
+              <h3>A tecla K está ligada a duas ações</h3>
               <p>
-                <strong>This Is Your Life</strong> abre o diário do sobrevivente. <strong>True Smoking</strong> usa
-                outro menu para fumar. O conflito é real e faz uma ação atrapalhar a outra.
+                <strong>This Is Your Life</strong> usa K para abrir o diário de vida do personagem.
+                <strong> True Smoking</strong> usa a mesma tecla para dar um trago no cigarro aceso.
+                Quando as duas ações ficam em K, uma pode atrapalhar a outra.
               </p>
               <ol>
                 <li>Abra <strong>Options</strong> e depois <strong>Key Bindings</strong>.</li>
-                <li>Procure <strong>This Is Your Life</strong> e troque a tecla, ou abra <strong>Mod Options</strong>, <strong>True Smoking</strong> e <strong>Smoke</strong>.</li>
-                <li>Escolha uma tecla livre e teste os dois menus antes de sair de casa.</li>
+                <li>Procure os atalhos de <strong>This Is Your Life</strong> e <strong>True Smoking</strong>.</li>
+                <li>Mude uma das duas teclas. Isso é especialmente importante para personagens fumantes.</li>
               </ol>
             </div>
 
             <ol className="steps">
-              <li><strong>Deixe os mods terminarem.</strong><span>Assine a coleção inteira. Arquivo incompleto causa kick.</span></li>
+              <li><strong>Baixe os mods.</strong><span>Assine a coleção antes de entrar ou deixe o jogo baixar tudo automaticamente na primeira conexão.</span></li>
               <li><strong>Vasculhe a casa inicial.</strong><span>Mochila, água, comida, curativo e uma arma branca já bastam para a primeira saída.</span></li>
               <li><strong>Avise onde nasceu.</strong><span>Combinar a região economiza uma noite inteira de procura.</span></li>
-              <li><strong>Prepare o Bound Journal.</strong><span>Ele aparece cedo neste guia porque descobrir sua utilidade depois de morrer é uma aula cara.</span></li>
+              <li><strong>Prepare o Bound Journal.</strong><span>Faça o diário cedo e transcreva novamente depois de ganhar skills importantes.</span></li>
             </ol>
 
             <div className="tip">
-              <strong>Regra de bolso</strong>
+              <strong>Deslocamento</strong>
               Quintais, fundos de terreno e cercas baixas oferecem mais rotas que o meio da rua.
               Antes de pular, olhe onde vai cair.
             </div>
@@ -205,7 +211,7 @@ export default function Home() {
             <div className="media-grid">
               <article>
                 <p className="micro-label">Televisão</p>
-                <h3>O começo da campanha tem horário</h3>
+                <h3>Programas passam em horários definidos</h3>
                 <p>
                   Alguns programas dão XP ou receitas. Eles passam em horários específicos e dependem
                   de energia, então valem uma pausa segura nos primeiros dias.
@@ -213,7 +219,7 @@ export default function Home() {
               </article>
               <article>
                 <p className="micro-label">VHS</p>
-                <h3>A mesma aula, no seu tempo</h3>
+                <h3>Fitas podem ser assistidas depois</h3>
                 <p>
                   Fitas podem ensinar skills e receitas depois, usando uma televisão com aparelho de VHS.
                   O mod Obvious Skill Tapes marca em verde as fitas úteis para aprendizado.
@@ -225,7 +231,7 @@ export default function Home() {
               <summary>Posso assistir a mesma fita várias vezes para ganhar XP?</summary>
               <div>
                 Não conte com repetição para farmar. O jogo registra a mídia já vista por cada personagem.
-                Organize as fitas, assista em segurança e trate cada programa como uma aula única.
+                Organize as fitas e considere cada programa ou fita como um uso por personagem.
               </div>
             </details>
             <details>
@@ -239,10 +245,11 @@ export default function Home() {
 
           <section className="guide-section" id="combate">
             <div className="section-number">03</div>
-            <p className="kicker">Espaço antes de coragem</p>
+            <p className="kicker">Controle de distância</p>
             <h2>Combate e furtividade</h2>
             <p className="lead">
-              Um zumbi é um problema. Dois são uma aula. Uma horda é um pedido para sair dali.
+              Combate seguro depende de espaço, visão do entorno e uma rota para recuar. Evite lutar
+              cercado ou continuar atacando quando outros zumbis estão chegando.
             </p>
 
             <div className="principles">
@@ -252,15 +259,14 @@ export default function Home() {
               <article><span>04</span><h3>Saiba encerrar</h3><p>Multi-hit ajuda contra um grupo pequeno. Não transforma multidão em alvo razoável.</p></article>
             </div>
 
-            <h3>Furtividade compra tempo</h3>
+            <h3>Furtividade reduz combates desnecessários</h3>
             <p>
               Agachar reduz sua presença e escolher a rota evita metade das lutas. Aqui também dá
-              para deitar, o que melhora a pontaria. Serve para escolher um tiro, não para abrir um
-              concerto de armas no centro da cidade.
+              para deitar, o que melhora a pontaria. Armas de fogo continuam produzindo muito barulho.
             </p>
             <p>
-              Barulho atrai problemas muitas vezes com atraso. Você atira, a rua continua quieta e
-              parece que deu certo. Dois minutos depois chega a plateia.
+              Zumbis atraídos por barulho podem levar algum tempo para chegar. Depois de atirar ou
+              disparar um alarme, observe o entorno e planeje a saída antes de continuar saqueando.
             </p>
 
             <details>
@@ -271,18 +277,17 @@ export default function Home() {
               </div>
             </details>
             <details>
-              <summary>Porta trancada é desafio ou aviso?</summary>
+              <summary>Como abrir portas e janelas trancadas?</summary>
               <div>
                 Pé-de-cabra abre porta comum, janela e portão de garagem. Lockpick não abre janela,
-                e grade metálica de delegacia não cede aos dois. Uma casa com alarme resolve a dúvida
-                de outro jeito.
+                e grade metálica de delegacia não cede aos dois. Abrir uma casa também pode disparar alarme.
               </div>
             </details>
           </section>
 
           <section className="guide-section" id="mundo">
             <div className="section-number">04</div>
-            <p className="kicker">Sem lua de mel</p>
+            <p className="kicker">A dificuldade aumenta com o tempo</p>
             <h2>O mundo e suas ameaças</h2>
             <p className="lead">
               A cidade já é perigosa no dia 1 e fica mais densa até o dia 35. O mapa que parecia
@@ -297,43 +302,43 @@ export default function Home() {
 
             <div className="two-column-copy">
               <div>
-                <h3>A multidão muda de humor</h3>
+                <h3>Alguns grupos têm corredores</h3>
                 <p>
                   A maioria é lenta ou rápida sem correr. Uma pequena chance de sprinter significa
                   que toda aglomeração pode esconder alguém que fecha distância de verdade.
                 </p>
               </div>
               <div>
-                <h3>Comida é projeto</h3>
+                <h3>Produção de comida</h3>
                 <p>
-                  Loot é escasso. Horta, animais e estoque entram no plano cedo, porque planta cresce
-                  no ritmo dela e uma despensa vazia não aceita discurso motivacional.
+                  Loot é escasso. Horta, animais e estoque devem ser organizados cedo, porque a produção
+                  leva tempo e precisa continuar depois que os alimentos encontrados acabarem.
                 </p>
               </div>
               <div>
-                <h3>Arma não é munição</h3>
-                <p>Armas de fogo aparecem com mais facilidade que bala. Encontrar um revólver é uma promessa, não uma solução.</p>
+                <h3>Armas e munição</h3>
+                <p>Armas de fogo aparecem com mais facilidade que munição. Confira o calibre e o estoque antes de depender de uma arma.</p>
               </div>
               <div>
                 <h3>Bandits existem</h3>
-                <p>Grupos hostis rondam, mexem em propriedade e gostam do escuro. Aviso visual ajuda somente quem estiver olhando.</p>
+                <p>Alguns bandidos podem roubar itens de recipientes em bases detectadas pelo mod. Uma safehouse não bloqueia essa ação.</p>
               </div>
             </div>
 
             <div className="deadline">
-              <p className="micro-label">O relógio da infraestrutura</p>
+              <p className="micro-label">Água e energia</p>
               <div><strong>Por volta do dia 15</strong><span>água e energia começam a falhar de forma intermitente</span></div>
-              <div><strong>Perto do dia 30</strong><span>o corte permanente chega e improviso deixa de ser plano</span></div>
+              <div><strong>Perto do dia 30</strong><span>acontece o corte permanente de água e energia</span></div>
             </div>
           </section>
 
           <section className="guide-section" id="diario">
             <div className="section-number">05</div>
-            <p className="kicker">A rede de segurança</p>
+            <p className="kicker">Recuperação parcial de progressão</p>
             <h2>Diário, morte e recomeço</h2>
             <p className="lead">
-              O <strong>Bound Journal</strong> guarda uma fotografia do aprendizado do personagem. Ele não apaga a
-              morte, não devolve seu equipamento e não busca seu corpo por você.
+              O <strong>Bound Journal</strong> registra o XP e as receitas elegíveis no momento da transcrição.
+              Ele não devolve equipamento nem recupera o corpo do personagem anterior.
             </p>
 
             <SectionArt
@@ -373,19 +378,19 @@ export default function Home() {
               <summary>O diário da tecla K faz a mesma coisa?</summary>
               <div>
                 Não. O diário aberto por K registra história, ferimentos e anotações do sobrevivente.
-                O Bound Journal é o item físico de recuperação de perícias. São dois cadernos e duas funções.
+                O Bound Journal é o item físico usado para recuperar parte da progressão.
               </div>
             </details>
           </section>
 
           <section className="guide-section" id="cozinha">
             <div className="section-number">06</div>
-            <p className="kicker">Comer melhor, desperdiçar menos</p>
+            <p className="kicker">Sistema de cozinha</p>
             <h2>Como cozinhar aqui</h2>
             <p className="lead">
               Cozinhar começa escolhendo uma base, acrescentando ingredientes e usando uma fonte de calor.
-              Nossos mods aumentam muito a variedade e tornam a montagem mais clara, sem transformar comida
-              crua em comida segura por mágica.
+              Nossos mods aumentam a variedade de receitas e oferecem um painel para organizar ingredientes.
+              As exigências de utensílio, skill, calor e tempo continuam valendo.
             </p>
 
             <ol className="basic-flow">
@@ -397,11 +402,11 @@ export default function Home() {
 
             <div className="two-column-copy cooking-notes">
               <div>
-                <h3>Project Cook é o ajudante</h3>
+                <h3>Project Cook organiza as receitas</h3>
                 <p>Ele organiza receitas e ingredientes num painel. Não elimina exigência de skill, utensílio ou calor.</p>
               </div>
               <div>
-                <h3>Vanilla Foods Expanded é a despensa</h3>
+                <h3>Vanilla Foods Expanded adiciona conteúdo</h3>
                 <p>Ele acrescenta uma variedade enorme de alimentos e receitas. Se não souber o uso de um item, comece pelo painel.</p>
               </div>
             </div>
@@ -415,11 +420,11 @@ export default function Home() {
 
           <section className="guide-section" id="veiculos">
             <div className="section-number">07</div>
-            <p className="kicker">Mobilidade custa manutenção</p>
+            <p className="kicker">Uso e manutenção</p>
             <h2>Carros e gasolina</h2>
             <p className="lead">
-              Carro encurta o mapa, carrega peso e também cria problemas caros. Aqui eles aparecem pouco,
-              costumam ter pouca gasolina e precisam ser tratados como recurso do grupo.
+              Veículos reduzem o tempo de deslocamento e transportam carga. Aqui eles aparecem pouco,
+              costumam ter pouca gasolina e exigem manutenção.
             </p>
 
             <div className="vehicle-grid">
@@ -436,7 +441,7 @@ export default function Home() {
                 <p>Abra a mecânica do veículo. Pneu, freio, suspensão, bateria e motor ruins mudam o risco da viagem.</p>
               </article>
               <article>
-                <span>04</span><h3>Dirija como se fosse raro</h3>
+                <span>04</span><h3>Evite colisões</h3>
                 <p>Colisão estraga carro e personagem. Sair cedo demais de um veículo em movimento também pode causar dano.</p>
               </article>
             </div>
@@ -468,11 +473,11 @@ export default function Home() {
 
           <section className="guide-section" id="base">
             <div className="section-number">08</div>
-            <p className="kicker">A semana dois começa cedo</p>
+            <p className="kicker">Preparação da base</p>
             <h2>Base, água, energia e comida</h2>
             <p className="lead">
               A primeira base precisa ser simples de entender, fácil de abandonar numa emergência e
-              próxima do trabalho do grupo. Casa bonita sem saída é só uma caixa decorada.
+              próxima das áreas usadas pelo grupo. Escolha um prédio com mais de uma saída.
             </p>
 
             <SectionArt
@@ -502,11 +507,10 @@ export default function Home() {
               resolve a falta de água.
             </p>
 
-            <h3>Transporte é multiplicador</h3>
+            <h3>Transporte de carga</h3>
             <p>
-              Carrinho de mão ou de supermercado muda uma mudança de base porque reduz o peso que o
-              grupo carrega. Carro bom é raro. Avise antes de pegar um emprestado, porque carro sumido
-              gera mais discussão que zumbi.
+              Carrinho de mão ou de supermercado reduz o peso carregado em mudanças e saques. Carros em
+              boas condições são raros; avise antes de usar um veículo que outra pessoa deixou na base.
             </p>
             <details>
               <summary>Quando vale ler?</summary>
@@ -519,11 +523,11 @@ export default function Home() {
 
           <section className="guide-section" id="grupo">
             <div className="section-number">09</div>
-            <p className="kicker">Coop exige que o grupo se encontre</p>
+            <p className="kicker">Organização do grupo</p>
             <h2>Facção, safehouse, mapa e convivência</h2>
             <p className="lead">
               O User Panel concentra a parte social. O botão fica na barra ao lado dos itens equipados,
-              no canto inferior da tela. É discreto demais para a quantidade de problemas que resolve.
+              no canto inferior da tela. É ali que você gerencia facção e safehouse.
             </p>
 
             <SectionArt
@@ -540,14 +544,13 @@ export default function Home() {
 
             <div className="tip">
               <strong>Não abandone a safehouse</strong>
-              Visite sua base. Depois de seis dias reais sem visita, a reivindicação pode cair. O mapa
-              precisa respirar, mas sua cama não precisa virar patrimônio público por distração.
+              Visite sua base. Depois de seis dias reais sem visita, a reivindicação pode cair e o prédio
+              deixa de ter a proteção da safehouse.
             </div>
 
             <p>
               Não pegue coisas da base dos outros sem combinar. Avise se levar carro. Fale antes de
-              mexer em gerador, plantação ou estoque coletivo. O servidor já é difícil de propósito.
-              Dificuldade social extra seria um mod péssimo.
+              mexer em gerador, plantação ou estoque coletivo.
             </p>
             <a className="text-link" href="/regras">Ler as regras completas do servidor</a>
           </section>
@@ -584,10 +587,10 @@ export default function Home() {
             </details>
 
             <div className="closing-note">
-              <p className="micro-label">Uma última coisa</p>
+              <p className="micro-label">Depois de uma morte</p>
               <p>
-                Quase toda morte parece evitável olhando depois. Isso é normal. Recupere o diário,
-                encontre o grupo e tente não repetir exatamente a mesma cena amanhã.
+                Se o personagem anterior deixou um Bound Journal atualizado, recupere o item, leia com
+                o novo personagem e avise ao grupo onde você reapareceu.
               </p>
             </div>
           </section>
@@ -597,10 +600,11 @@ export default function Home() {
       <footer>
         <div>
           <a className="brand" href="#topo">Zombas</a>
-          <p>Uma campanha cooperativa feita para durar meses, inclusive depois da morte ruim.</p>
+          <p>Guia público do servidor cooperativo Zombas.</p>
         </div>
         <nav aria-label="Links finais">
           <a href="/regras">Regras</a>
+          <a href="/mods">Mods atuais</a>
           <a href={steamCollection} target="_blank" rel="noreferrer">Coleção Steam</a>
           <a href="#topo">Voltar ao topo</a>
         </nav>

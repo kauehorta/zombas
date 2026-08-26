@@ -131,6 +131,12 @@ footer {
   padding-top: 1.35rem;
 }
 
+.top-links {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
 .brand {
   color: inherit;
   font-size: 0.9rem;
@@ -1296,6 +1302,12 @@ footer nav {
   font-weight: 700;
 }
 
+.rules-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
 .rules-footer {
   margin-top: 0;
 }
@@ -1309,5 +1321,128 @@ footer nav {
   .rules-cta {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .top-links {
+    gap: 0.7rem;
+  }
+
+  .top-links .rules-link {
+    font-size: 0.72rem;
+  }
+}
+
+.mods-page {
+  width: min(1040px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  padding: 4.5rem 0 5rem;
+}
+
+.mods-intro {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.mods-intro p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.12rem;
+}
+
+.mods-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 1.5rem 0 0;
+}
+
+.mods-index a {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--line);
+  background: var(--paper-light);
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.mods-section {
+  scroll-margin-top: 1.5rem;
+  padding: 5rem 0 0;
+}
+
+.mods-heading {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  padding-bottom: 1.2rem;
+  border-bottom: 4px solid var(--moss);
+}
+
+.mods-heading .kicker {
+  padding-top: 0.45rem;
+}
+
+.mods-heading h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+}
+
+.mods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mod-card {
+  padding: 1.35rem 1.35rem 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.mod-card:nth-child(even) {
+  padding-right: 0;
+  padding-left: 1.35rem;
+  border-left: 1px solid var(--line);
+}
+
+.mod-card h3 {
+  margin: 0;
+  font-size: 1.18rem;
+}
+
+.mod-card p {
+  margin: 0.45rem 0 0.7rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.mod-card a {
+  color: var(--rust-dark);
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+@media (max-width: 680px) {
+  .mods-intro,
+  .mods-heading,
+  .mods-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mods-intro {
+    align-items: stretch;
+  }
+
+  .mod-card,
+  .mod-card:nth-child(even) {
+    padding: 1.2rem 0;
+    border-left: 0;
   }
 }

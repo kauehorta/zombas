@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Regras de entrada, convivência, PVP, safehouse e administração do Zombas.",
   openGraph: {
     title: "Regras do servidor | Zombas",
-    description: "As regras que protegem a campanha cooperativa e a noite de jogo de todo mundo.",
+    description: "Regras de convivência, PVP, safehouse e administração do servidor Zombas.",
     url: "/regras",
   },
 };
@@ -22,23 +22,23 @@ export default function RulesPage() {
           <a className="back-link" href="/">Voltar ao manual</a>
           <p className="eyebrow">Zombas</p>
           <h1>Regras</h1>
-          <p>Poucas, diretas e feitas para proteger a noite de jogo de alguém.</p>
+          <p>Regras de entrada, convivência, PVP, safehouse e administração.</p>
         </div>
       </header>
 
       <main className="rules-page" id="regras-conteudo">
         <p className="rules-intro">
-          O Zombas é cooperativo, difícil e feito para durar meses. A regra maior é simples:
-          ninguém entra aqui para estragar a noite de outra pessoa.
+          O Zombas é um servidor cooperativo e a campanha foi configurada para durar meses.
+          Respeite o tempo, os personagens e os recursos dos outros jogadores.
         </p>
 
         <section>
           <p className="kicker">01</p>
-          <h2>Entrar sem sofrimento técnico</h2>
+          <h2>Entrada no servidor</h2>
           <p>
-            Assine a <a href={steamCollection} target="_blank" rel="noreferrer">coleção inteira</a> e espere
-            o download terminar antes de conectar. O servidor confere os arquivos e dá kick quando
-            a instalação está incompleta ou desatualizada.
+            Você pode assinar a <a href={steamCollection} target="_blank" rel="noreferrer">coleção inteira</a> antes
+            de entrar ou deixar o jogo baixar os mods na primeira conexão. O servidor dá kick quando
+            algum arquivo obrigatório está incompleto ou desatualizado.
           </p>
           <div className="rule-note"><strong>Senha do servidor</strong><span>Peça no grupo. Não publique em lugar aberto.</span></div>
         </section>
@@ -60,12 +60,12 @@ export default function RulesPage() {
           <h2>PVP com intenção</h2>
           <p>
             O PVP está ligado com trava de segurança. Um jogador só pode ferir outro quando ao menos
-            um dos dois escolheu entrar em combate, condição indicada pela caveira. A caveira mostra
-            modo de combate, não promessa de assassinato sem aviso.
+            um dos dois escolheu entrar em combate, condição indicada pela caveira. A caveira indica
+            que o modo de combate está ativo.
           </p>
           <p>
-            Conflito pode existir como parte da história do grupo. Kill repetido e sem contexto vira
-            conversa com a administração e pode terminar em ban.
+            Conflito combinado pode fazer parte da história do grupo. Kill repetido e sem contexto
+            será tratado pela administração e pode terminar em ban.
           </p>
         </section>
 
@@ -78,8 +78,8 @@ export default function RulesPage() {
             dias reais, a reivindicação pode cair.
           </p>
           <p>
-            Dormir é necessário. O tempo só acelera quando todo mundo coopera, então avise no chat
-            quando for se recolher. Uma pessoa passeando de madrugada segura o relógio do grupo inteiro.
+            Dormir é necessário. O tempo só acelera quando todos os jogadores online estão dormindo,
+            então avise no chat antes de usar a cama.
           </p>
         </section>
 
@@ -100,21 +100,24 @@ export default function RulesPage() {
           <h2>O que o admin faz</h2>
           <p>
             Administração não distribui item, experiência ou teleporte por pedido. Ela corrige
-            defeito real, como item perdido em crash ou personagem preso na geometria, e cuida para
-            que o servidor continue sendo justo para quem joga em horários diferentes.
+            defeito real, como item perdido em crash ou personagem preso na geometria, e resolve
+            problemas técnicos do servidor.
           </p>
           <p>Quando algo der errado, fale no grupo e explique o que aconteceu antes de tentar resolver por conta própria.</p>
         </section>
 
         <div className="rules-cta">
-          <p>Pronto para entrar?</p>
-          <a className="button button-primary" href="/">Voltar à primeira hora</a>
+          <p>Consulte também o manual e a lista de mods.</p>
+          <div className="rules-actions">
+            <a className="button button-primary" href="/">Manual</a>
+            <a className="button button-ghost" href="/mods">Mods atuais</a>
+          </div>
         </div>
       </main>
 
       <footer className="rules-footer">
-        <div><a className="brand" href="/">Zombas</a><p>Coop primeiro. Sempre.</p></div>
-        <nav aria-label="Links das regras"><a href="/">Manual</a><a href={steamCollection} target="_blank" rel="noreferrer">Coleção Steam</a></nav>
+        <div><a className="brand" href="/">Zombas</a><p>Servidor cooperativo de Project Zomboid.</p></div>
+        <nav aria-label="Links das regras"><a href="/">Manual</a><a href="/mods">Mods atuais</a><a href={steamCollection} target="_blank" rel="noreferrer">Coleção Steam</a></nav>
       </footer>
     </>
   );
