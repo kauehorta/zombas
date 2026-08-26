@@ -2,6 +2,25 @@ const steamCollection = "https://steamcommunity.com/sharedfiles/filedetails/?id=
 const donateUrl = "https://nubank.com.br/cobrar/dadmh/6a8f4bb1-4f03-4a4a-87e0-4e86e4a5d3fb";
 const whatsappUrl = "https://chat.whatsapp.com/Ep63691t14H41ubX6nYDOn?s=cl&p=a&ilr=0";
 
+function GuideIcon({ type }: { type: "novato" | "veterano" }) {
+  if (type === "novato") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 8V6a5 5 0 0 1 10 0v2" />
+        <path d="M5 8h14l1 12H4L5 8Z" />
+        <path d="M8 12h8M9 16h6" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="m3 11 9-7 9 7v9H3v-9Z" />
+      <path d="M9 20v-6h6v6M7 11h.01M17 11h.01" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -80,8 +99,12 @@ export default function Home() {
 
       <main className="portal-content" id="conteudo">
         <div className="vehicle-grid guide-grid" aria-label="Escolha seu guia">
-          <article>
-            <span>01</span>
+          <article className="guide-card guide-card-novato">
+            <img className="guide-card-art" src="/assets/vinheta-mochila.webp" alt="" aria-hidden="true" />
+            <div className="guide-card-top">
+              <span className="guide-symbol"><GuideIcon type="novato" /></span>
+              <span>01</span>
+            </div>
             <h3>Guia do novato</h3>
             <p>
               Primeira hora, habilidades, combate, o diário e a base: o essencial pra sobreviver
@@ -89,8 +112,12 @@ export default function Home() {
             </p>
             <a className="text-link" href="/novatos">Começar por aqui</a>
           </article>
-          <article>
-            <span>02</span>
+          <article className="guide-card guide-card-veterano">
+            <img className="guide-card-art" src="/assets/vinheta-base.webp" alt="" aria-hidden="true" />
+            <div className="guide-card-top">
+              <span className="guide-symbol"><GuideIcon type="veterano" /></span>
+              <span>02</span>
+            </div>
             <h3>Guia do veterano</h3>
             <p>
               Defesa de base em grupo, logística de longo prazo, carpintaria, elétrica, encanamento

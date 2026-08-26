@@ -54,6 +54,17 @@ continua restrito às páginas curtas em que uma fileira de links basta.
 **Consequência.** `.page-shell`, `.desktop-nav`, `.mobile-nav` e `.side-note` voltaram a ter uso.
 `.guide-section` e `.section-number` seguem preservadas no CSS histórico, sem uso atual.
 
+### Símbolos e imagens de apoio
+
+**Decisão.** A camada visual usa ícones lineares pequenos para orientar ações e seções, e reutiliza
+as vinhetas já mantidas em `assets/` nos dois cartões de entrada. Imagem entra onde ajuda uma escolha
+ou uma mecânica a ser reconhecida, não para preencher espaço entre parágrafos.
+
+**Por quê.** O site já tem uma identidade de manual de sobrevivência. Símbolos discretos melhoram a
+varredura sem disputar atenção com as instruções, e as vinhetas de mochila e base tornam a escolha
+entre os dois guias visível antes da leitura. Screenshots de Workshop só entram se houver uma fonte
+com permissão clara de republicação; descrição pública de mod não é licença para re-hospedar imagens.
+
 ### Sem componente de header/footer compartilhado
 
 **Decisão.** Cada página continua declarando seu próprio cabeçalho, rodapé e constantes de URL
