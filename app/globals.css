@@ -19,6 +19,7 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
@@ -876,6 +877,12 @@ details > div {
   border-bottom: 1px solid var(--line);
 }
 
+@media (min-width: 681px) {
+  .vehicle-grid.guide-grid article {
+    border-bottom: 0;
+  }
+}
+
 .fuel-facts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1199,9 +1206,15 @@ footer nav {
   padding: 2rem 0 4.8rem;
 }
 
+.back-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 4rem;
+}
+
 .back-link {
   display: inline-block;
-  margin-bottom: 4rem;
   color: #f1c179;
   font-family: system-ui, sans-serif;
   font-size: 0.85rem;
@@ -1390,6 +1403,7 @@ footer nav {
 }
 
 .mods-heading h2 {
+  min-width: 0;
   margin: 0;
   font-size: clamp(2.4rem, 5vw, 4rem);
 }

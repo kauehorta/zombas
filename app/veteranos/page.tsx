@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const donateUrl = "https://nubank.com.br/cobrar/dadmh/6a8f4bb1-4f03-4a4a-87e0-4e86e4a5d3fb";
 const whatsappUrl = "https://chat.whatsapp.com/Ep63691t14H41ubX6nYDOn?s=cl&p=a&ilr=0";
+const steamCollection = "https://steamcommunity.com/sharedfiles/filedetails/?id=3790189787";
 
 const anchors = [
   ["#mundo", "A linha do tempo"],
@@ -30,9 +31,11 @@ export default function VeteranosPage() {
 
       <header className="rules-hero">
         <div className="rules-hero-inner">
-          <a className="back-link" href="/">Voltar ao início</a>{" "}
-          <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>{" "}
-          <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
+          <nav className="back-links" aria-label="Links do guia">
+            <a className="back-link" href="/">Voltar ao início</a>
+            <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>
+            <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
+          </nav>
           <p className="eyebrow">Zombas</p>
           <h1>Guia do veterano</h1>
           <p>
@@ -106,7 +109,7 @@ export default function VeteranosPage() {
 
         <section id="combate">
           <p className="kicker">Quando tem mais gente do que você consegue empurrar</p>
-          <h2>Defesa em grupo e o custo de perder um personagem geral</h2>
+          <h2>Defesa em grupo e o custo de perder um personagem</h2>
           <p>
             Os fundamentos de 1 contra 1 (empurrar, reposicionar, respeitar a animação) não mudam
             aqui. O que muda é a matemática: um personagem investido carrega meses de skill, e um
@@ -395,6 +398,7 @@ export default function VeteranosPage() {
           <a href="/mods">Mods atuais</a>
           <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>
           <a href={donateUrl} target="_blank" rel="noreferrer">Apoiar</a>
+          <a href={steamCollection} target="_blank" rel="noreferrer">Coleção Steam</a>
         </nav>
       </footer>
     </>

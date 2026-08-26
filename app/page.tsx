@@ -79,7 +79,7 @@ export default function Home() {
       </section>
 
       <main id="conteudo">
-        <div className="vehicle-grid" aria-label="Escolha seu guia">
+        <div className="vehicle-grid guide-grid" aria-label="Escolha seu guia">
           <article>
             <span>01</span>
             <h3>Guia do novato</h3>

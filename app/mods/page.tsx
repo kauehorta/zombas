@@ -125,9 +125,11 @@ export default function ModsPage() {
 
       <header className="rules-hero mods-hero">
         <div className="rules-hero-inner">
-          <a className="back-link" href="/">Voltar ao início</a>{" "}
-          <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>{" "}
-          <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
+          <nav className="back-links" aria-label="Links da lista de mods">
+            <a className="back-link" href="/">Voltar ao início</a>
+            <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>
+            <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
+          </nav>
           <p className="eyebrow">Zombas</p>
           <h1>Mods atuais</h1>
           <p>{mods.length} itens da Workshop, cada um com uma função e pelo menos uma chance de gerar pergunta no grupo.</p>

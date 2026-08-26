@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const donateUrl = "https://nubank.com.br/cobrar/dadmh/6a8f4bb1-4f03-4a4a-87e0-4e86e4a5d3fb";
 const whatsappUrl = "https://chat.whatsapp.com/Ep63691t14H41ubX6nYDOn?s=cl&p=a&ilr=0";
+const steamCollection = "https://steamcommunity.com/sharedfiles/filedetails/?id=3790189787";
 
 const anchors = [
   ["#primeira-hora", "Primeira hora"],
@@ -42,9 +43,11 @@ export default function NovatosPage() {
 
       <header className="rules-hero">
         <div className="rules-hero-inner">
-          <a className="back-link" href="/">Voltar ao início</a>{" "}
-          <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>{" "}
-          <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
+          <nav className="back-links" aria-label="Links do guia">
+            <a className="back-link" href="/">Voltar ao início</a>
+            <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>
+            <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
+          </nav>
           <p className="eyebrow">Zombas</p>
           <h1>Guia do novato</h1>
           <p>
@@ -280,8 +283,11 @@ export default function NovatosPage() {
           <p>
             Tem coisa nessa casa que não é mais sua, e a que ainda é vai embora com você quando você
             morrer. O <strong>Bound Journal</strong> é o único jeito de levar um pedaço disso adiante.
+            — Residente Ivo
+          </p>
+          <p>
             Ele registra XP e receitas elegíveis no momento da transcrição, mas não devolve equipamento
-            nem busca o corpo do personagem anterior. — Residente Ivo
+            nem busca o corpo do personagem anterior.
           </p>
 
           <SectionArt
@@ -611,8 +617,11 @@ export default function NovatosPage() {
             <p>
               Respira. A casa continua lá, só que agora é a casa de outra pessoa. Se o personagem
               anterior deixou um Bound Journal atualizado, recupere o item, leia com o novo personagem
-              e avise ao grupo onde você reapareceu. O resto — o que você sentiu ao ver o nome dele
-              apagado da lista de vivos — isso o diário não registra. — Residente Ivo
+              e avise ao grupo onde você reapareceu.
+            </p>
+            <p>
+              O resto — o que você sentiu ao ver o nome dele apagado da lista de vivos — isso o diário
+              não registra. — Residente Ivo
             </p>
           </div>
         </section>
@@ -639,6 +648,7 @@ export default function NovatosPage() {
           <a href="/mods">Mods atuais</a>
           <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>
           <a href={donateUrl} target="_blank" rel="noreferrer">Apoiar</a>
+          <a href={steamCollection} target="_blank" rel="noreferrer">Coleção Steam</a>
         </nav>
       </footer>
     </>

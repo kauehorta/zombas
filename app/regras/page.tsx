@@ -21,9 +21,11 @@ export default function RulesPage() {
 
       <header className="rules-hero">
         <div className="rules-hero-inner">
-          <a className="back-link" href="/">Voltar ao início</a>{" "}
-          <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>{" "}
-          <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
+          <nav className="back-links" aria-label="Links das regras">
+            <a className="back-link" href="/">Voltar ao início</a>
+            <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>
+            <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
+          </nav>
           <p className="eyebrow">Zombas</p>
           <h1>Regras</h1>
           <p>Poucas regras, todas importantes. Leia uma vez e jogue tranquilo.</p>
