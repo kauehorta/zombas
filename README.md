@@ -11,7 +11,11 @@ atual de mods.
 
 O repositório contém o código-fonte e a versão estática servida diretamente pelo GitHub Pages.
 
-**Antes de mexer na estrutura, na voz ou no layout, leia [DECISIONS.md](DECISIONS.md).** Registra
-por que o site é dividido do jeito que é, a voz narrativa (e a personagem Residente Ivo), e as
-decisões de gestão do repositório — evita redescobrir ou contradizer sem querer o que já foi
-decidido.
+**Antes de mexer no conteúdo, leia [CONTENT-CONTEXT.md](CONTENT-CONTEXT.md). Antes de mexer na
+estrutura, na voz ou no layout, leia também [DECISIONS.md](DECISIONS.md).** O primeiro registra o
+estado editorial, aprendizados e perguntas abertas que a próxima revisão precisa herdar. O segundo
+registra as decisões já consolidadas e por que o site é dividido e escrito do jeito que é.
+
+**Antes de escrever qualquer trecho assinado "— Residente Ivo", leia
+[RESIDENTE-IVO.md](RESIDENTE-IVO.md).** É o perfil de personalidade completo da voz narrativa do
+site — quem ele é, o registro de voz, o que ele nunca é, e os antipadrões de IA a cortar sempre.
