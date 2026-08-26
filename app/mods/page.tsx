@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 const collectionUrl = "https://steamcommunity.com/sharedfiles/filedetails/?id=3790189787";
+const donateUrl = "https://nubank.com.br/cobrar/dadmh/6a8f4bb1-4f03-4a4a-87e0-4e86e4a5d3fb";
+const whatsappUrl = "https://chat.whatsapp.com/Ep63691t14H41ubX6nYDOn?s=cl&p=a&ilr=0";
 
 const categories = [
   ["gameplay", "Sistemas e sobrevivência"],
@@ -123,7 +125,9 @@ export default function ModsPage() {
 
       <header className="rules-hero mods-hero">
         <div className="rules-hero-inner">
-          <a className="back-link" href="/">Voltar ao manual</a>
+          <a className="back-link" href="/">Voltar ao início</a>{" "}
+          <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>{" "}
+          <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
           <p className="eyebrow">Zombas</p>
           <h1>Mods atuais</h1>
           <p>{mods.length} itens da Workshop, cada um com uma função e pelo menos uma chance de gerar pergunta no grupo.</p>
@@ -174,7 +178,15 @@ export default function ModsPage() {
 
       <footer className="rules-footer">
         <div><a className="brand" href="/">Zombas</a><p>Lista conferida no servidor. Porque “acho que tem” não é inventário.</p></div>
-        <nav aria-label="Links da lista de mods"><a href="/">Manual</a><a href="/regras">Regras</a><a href={collectionUrl} target="_blank" rel="noreferrer">Coleção Steam</a></nav>
+        <nav aria-label="Links da lista de mods">
+          <a href="/">Início</a>
+          <a href="/novatos">Guia do novato</a>
+          <a href="/veteranos">Guia do veterano</a>
+          <a href="/regras">Regras</a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href={donateUrl} target="_blank" rel="noreferrer">Apoiar</a>
+          <a href={collectionUrl} target="_blank" rel="noreferrer">Coleção Steam</a>
+        </nav>
       </footer>
     </>
   );

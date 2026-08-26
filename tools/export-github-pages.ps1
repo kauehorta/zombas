@@ -35,10 +35,26 @@ $routes = @(
     @{
         Source = '/'
         Folder = ''
-        Title = 'Zombas | Manual do sobrevivente'
-        Description = 'Guia do servidor cooperativo Zombas: primeiros passos, habilidades, diários, cozinha, veículos, recursos e mods.'
+        Title = 'Zombas | Portal do sobrevivente'
+        Description = 'Portal do servidor cooperativo Zombas: guia do novato, guia do veterano, regras e mods.'
         Canonical = 'https://kauehorta.github.io/zombas/'
         Prefix = './'
+    },
+    @{
+        Source = '/novatos'
+        Folder = 'novatos'
+        Title = 'Guia do novato | Zombas'
+        Description = 'Primeira hora, habilidades, combate, o diário e a base - o essencial pra sobreviver no Zombas sem nunca ter jogado Project Zomboid.'
+        Canonical = 'https://kauehorta.github.io/zombas/novatos/'
+        Prefix = '../'
+    },
+    @{
+        Source = '/veteranos'
+        Folder = 'veteranos'
+        Title = 'Guia do veterano | Zombas'
+        Description = 'Defesa de base em grupo, logística de longo prazo, carpintaria, elétrica, encanamento e frota no Zombas.'
+        Canonical = 'https://kauehorta.github.io/zombas/veteranos/'
+        Prefix = '../'
     },
     @{
         Source = '/regras'
@@ -75,15 +91,20 @@ foreach ($route in $routes) {
     $body = [regex]::Replace($body, '(?is)<script\b[^>]*>.*?</script>', '')
     $body = [regex]::Replace($body, '(?is)<template\b[^>]*>.*?</template>', '')
 
+    # Root-relative internal links can carry an optional #fragment (cross-links between
+    # /novatos and /veteranos jump straight to a section) - a plain .Replace() only matches
+    # the exact attribute value and would silently skip anything with a fragment, so this
+    # uses regex to rewrite href="/novatos#combate" the same way as href="/novatos".
+    $localPrefix = if ($route.Folder -eq '') { './' } else { '../' }
+    foreach ($target in @('novatos', 'veteranos', 'regras', 'mods')) {
+        $body = [regex]::Replace($body, "href=`"/$target(#[^`"]*)?`"", "href=`"$localPrefix$target/`$1`"")
+    }
+
     if ($route.Folder -eq '') {
-        $body = $body.Replace('href="/regras"', 'href="./regras/"')
-        $body = $body.Replace('href="/mods"', 'href="./mods/"')
         $body = $body.Replace('href="/"', 'href="./"')
         $body = $body.Replace('src="/assets/', 'src="./assets/')
     }
     else {
-        $body = $body.Replace('href="/regras"', 'href="../regras/"')
-        $body = $body.Replace('href="/mods"', 'href="../mods/"')
         $body = $body.Replace('href="/"', 'href="../"')
         $body = $body.Replace('src="/assets/', 'src="../assets/')
     }

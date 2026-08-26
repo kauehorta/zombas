@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 const steamCollection = "https://steamcommunity.com/sharedfiles/filedetails/?id=3790189787";
+const donateUrl = "https://nubank.com.br/cobrar/dadmh/6a8f4bb1-4f03-4a4a-87e0-4e86e4a5d3fb";
+const whatsappUrl = "https://chat.whatsapp.com/Ep63691t14H41ubX6nYDOn?s=cl&p=a&ilr=0";
 
 export default function RulesPage() {
   return (
@@ -19,7 +21,9 @@ export default function RulesPage() {
 
       <header className="rules-hero">
         <div className="rules-hero-inner">
-          <a className="back-link" href="/">Voltar ao manual</a>
+          <a className="back-link" href="/">Voltar ao início</a>{" "}
+          <a className="back-link" href={whatsappUrl} target="_blank" rel="noreferrer">Grupo do WhatsApp</a>{" "}
+          <a className="back-link" href={donateUrl} target="_blank" rel="noreferrer">Apoiar o servidor</a>
           <p className="eyebrow">Zombas</p>
           <h1>Regras</h1>
           <p>Poucas regras, todas importantes. Leia uma vez e jogue tranquilo.</p>
@@ -41,7 +45,7 @@ export default function RulesPage() {
             pode demorar. O servidor pode desconectar quem estiver com algum arquivo obrigatório incompleto
             ou desatualizado.
           </p>
-          <div className="rule-note"><strong>Senha do servidor</strong><span>Peça no grupo. Não publique em lugar aberto.</span></div>
+          <div className="rule-note"><strong>Senha do servidor</strong><span>Peça no <a href={whatsappUrl} target="_blank" rel="noreferrer">grupo do WhatsApp</a>. Não publique em lugar aberto.</span></div>
         </section>
 
         <section>
@@ -110,9 +114,10 @@ export default function RulesPage() {
         </section>
 
         <div className="rules-cta">
-          <p>Ficou na dúvida sobre alguma mecânica? O manual e a lista de mods completam o serviço.</p>
+          <p>Ficou na dúvida sobre alguma mecânica? Os guias de novato e veterano completam o serviço.</p>
           <div className="rules-actions">
-            <a className="button button-primary" href="/">Manual</a>
+            <a className="button button-primary" href="/novatos">Guia do novato</a>
+            <a className="button button-ghost" href="/veteranos">Guia do veterano</a>
             <a className="button button-ghost" href="/mods">Mods atuais</a>
           </div>
         </div>
@@ -120,7 +125,15 @@ export default function RulesPage() {
 
       <footer className="rules-footer">
         <div><a className="brand" href="/">Zombas</a><p>Cooperação primeiro. Drama só dentro do jogo.</p></div>
-        <nav aria-label="Links das regras"><a href="/">Manual</a><a href="/mods">Mods atuais</a><a href={steamCollection} target="_blank" rel="noreferrer">Coleção Steam</a></nav>
+        <nav aria-label="Links das regras">
+          <a href="/">Início</a>
+          <a href="/novatos">Guia do novato</a>
+          <a href="/veteranos">Guia do veterano</a>
+          <a href="/mods">Mods atuais</a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href={donateUrl} target="_blank" rel="noreferrer">Apoiar</a>
+          <a href={steamCollection} target="_blank" rel="noreferrer">Coleção Steam</a>
+        </nav>
       </footer>
     </>
   );
