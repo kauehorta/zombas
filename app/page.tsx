@@ -2,9 +2,12 @@ const steamCollection = "https://steamcommunity.com/sharedfiles/filedetails/?id=
 
 const navigation = [
   ["#primeira-hora", "Primeira hora"],
+  ["#progresso", "Skills, livros, TV e VHS"],
   ["#combate", "Combate e furtividade"],
   ["#mundo", "O mundo e suas ameaças"],
   ["#diario", "Diário, morte e recomeço"],
+  ["#cozinha", "Cozinha e nossos mods"],
+  ["#veiculos", "Carros e gasolina"],
   ["#base", "Base, água, energia e comida"],
   ["#grupo", "Facção, safehouse e mapa"],
   ["#duvidas", "Dúvidas rápidas"],
@@ -20,7 +23,7 @@ function Navigation({ mobile = false }: { mobile?: boolean }) {
         </a>
       ))}
       <a href="/regras">
-        <span>08</span>
+        <span>11</span>
         Regras do servidor
       </a>
     </>
@@ -165,8 +168,77 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="guide-section" id="combate">
+          <section className="guide-section" id="progresso">
             <div className="section-number">02</div>
+            <p className="kicker">Aprender antes de praticar</p>
+            <h2>Skills, livros, TV e VHS</h2>
+            <p className="lead">
+              Skills representam o que seu personagem sabe fazer. Quase todas vão do nível 0 ao 10,
+              e sobem quando você ganha XP usando aquela habilidade. Livro, televisão e fita ajudam,
+              mas cada um ajuda de um jeito diferente.
+            </p>
+
+            <div className="learning-loop">
+              <article>
+                <span>01</span>
+                <h3>Leia o volume certo</h3>
+                <p>O livro não dá XP nem nível. Ele multiplica o XP que você ganhar depois, dentro da faixa indicada na capa.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Pratique a skill</h3>
+                <p>Depois de ler, faça a atividade: cozinhe, desmonte, conserte ou construa. É a prática que move a barra.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Troque de volume</h3>
+                <p>Cada volume cobre dois níveis. Volume I prepara 1 e 2; II prepara 3 e 4; e assim até o Volume V.</p>
+              </article>
+            </div>
+
+            <div className="tip">
+              <strong>Ler é bem mais rápido no Zombas</strong>
+              O tempo está configurado em 0,2 minuto por página. Sentar no chão, em móvel ou banco
+              de veículo reduz mais 34%, e o mod Has Been Read ajuda a enxergar o que ainda falta ler.
+            </div>
+
+            <div className="media-grid">
+              <article>
+                <p className="micro-label">Televisão</p>
+                <h3>O começo da campanha tem horário</h3>
+                <p>
+                  Alguns programas dão XP ou receitas. Eles passam em horários específicos e dependem
+                  de energia, então valem uma pausa segura nos primeiros dias.
+                </p>
+              </article>
+              <article>
+                <p className="micro-label">VHS</p>
+                <h3>A mesma aula, no seu tempo</h3>
+                <p>
+                  Fitas podem ensinar skills e receitas depois, usando uma televisão com aparelho de VHS.
+                  O mod Obvious Skill Tapes marca em verde as fitas úteis para aprendizado.
+                </p>
+              </article>
+            </div>
+
+            <details>
+              <summary>Posso assistir a mesma fita várias vezes para ganhar XP?</summary>
+              <div>
+                Não conte com repetição para farmar. O jogo registra a mídia já vista por cada personagem.
+                Organize as fitas, assista em segurança e trate cada programa como uma aula única.
+              </div>
+            </details>
+            <details>
+              <summary>Profissão e traços mudam minhas skills?</summary>
+              <div>
+                Sim. Eles podem dar níveis iniciais e facilitar o aprendizado de certas skills. Por isso dois
+                personagens fazendo a mesma atividade podem avançar em ritmos diferentes.
+              </div>
+            </details>
+          </section>
+
+          <section className="guide-section" id="combate">
+            <div className="section-number">03</div>
             <p className="kicker">Espaço antes de coragem</p>
             <h2>Combate e furtividade</h2>
             <p className="lead">
@@ -209,7 +281,7 @@ export default function Home() {
           </section>
 
           <section className="guide-section" id="mundo">
-            <div className="section-number">03</div>
+            <div className="section-number">04</div>
             <p className="kicker">Sem lua de mel</p>
             <h2>O mundo e suas ameaças</h2>
             <p className="lead">
@@ -256,11 +328,11 @@ export default function Home() {
           </section>
 
           <section className="guide-section" id="diario">
-            <div className="section-number">04</div>
+            <div className="section-number">05</div>
             <p className="kicker">A rede de segurança</p>
             <h2>Diário, morte e recomeço</h2>
             <p className="lead">
-              O <strong>Bound Journal</strong> preserva parte do aprendizado do personagem. Ele não apaga a
+              O <strong>Bound Journal</strong> guarda uma fotografia do aprendizado do personagem. Ele não apaga a
               morte, não devolve seu equipamento e não busca seu corpo por você.
             </p>
 
@@ -270,8 +342,13 @@ export default function Home() {
             />
 
             <div className="critical journal-critical">
-              <div className="critical-tag">Faça cedo e atualize sempre</div>
-              <h3>Como usar o Bound Journal</h3>
+              <div className="critical-tag">Mudança pendente para o próximo reinício seguro</div>
+              <h3>A regra planejada é recuperar 50%</h3>
+              <p>
+                Quando o ajuste entrar ao vivo, ler o diário com o personagem novo devolverá metade do
+                XP elegível que estava gravado. Não significa metade do número do nível: como cada nível
+                exige uma quantidade diferente de XP, o resultado pode cair no meio de uma barra.
+              </p>
               <div className="journal-steps">
                 <p><strong>1. Fabrique</strong><span>Caderno, cola, três tiras de couro e uma linha. A receita se chama <em>Bind Journal Together</em>.</span></p>
                 <p><strong>2. Transcreva</strong><span>Com o item em mãos, use <em>Transcribe Into Journal</em>. Repita depois de ganhar perícias importantes.</span></p>
@@ -279,12 +356,17 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="status-note" role="note">
+              <strong>Status confirmado em 26/08:</strong> o servidor ao vivo ainda está em 100%.
+              A redução para 50% já foi decidida e aguarda um reinício sem jogadores online.
+            </div>
+
             <details>
               <summary>O que o diário não devolve?</summary>
               <div>
                 Força, Condicionamento, XP de televisão e vídeo, além dos níveis iniciais dados por
-                profissão ou traço. Personagens com Analfabeto não usam o sistema. Ele recupera somente
-                o que foi transcrito antes da morte.
+                profissão ou traço ficam fora. Personagens com Analfabeto não usam o sistema. Receitas
+                aprendidas são registradas, mas XP ganho depois da última transcrição também fica de fora.
               </div>
             </details>
             <details>
@@ -296,8 +378,96 @@ export default function Home() {
             </details>
           </section>
 
+          <section className="guide-section" id="cozinha">
+            <div className="section-number">06</div>
+            <p className="kicker">Comer melhor, desperdiçar menos</p>
+            <h2>Como cozinhar aqui</h2>
+            <p className="lead">
+              Cozinhar começa escolhendo uma base, acrescentando ingredientes e usando uma fonte de calor.
+              Nossos mods aumentam muito a variedade e tornam a montagem mais clara, sem transformar comida
+              crua em comida segura por mágica.
+            </p>
+
+            <ol className="basic-flow">
+              <li><strong>Escolha uma base.</strong><span>Panela com água, tigela, frigideira, pão e outros itens aceitam combinações diferentes.</span></li>
+              <li><strong>Abra o painel.</strong><span>Clique com o botão direito em um alimento compatível e use <em>Open Cooking Panel</em>.</span></li>
+              <li><strong>Monte a receita.</strong><span>O Project Cook mostra ingredientes próximos, temperos, nutrição, nível exigido e o que ainda está faltando.</span></li>
+              <li><strong>Cozinhe e vigie.</strong><span>Coloque no forno, fogão, churrasqueira ou fogueira adequada. Retire quando estiver cozido, antes de queimar.</span></li>
+            </ol>
+
+            <div className="two-column-copy cooking-notes">
+              <div>
+                <h3>Project Cook é o ajudante</h3>
+                <p>Ele organiza receitas e ingredientes num painel. Não elimina exigência de skill, utensílio ou calor.</p>
+              </div>
+              <div>
+                <h3>Vanilla Foods Expanded é a despensa</h3>
+                <p>Ele acrescenta uma variedade enorme de alimentos e receitas. Se não souber o uso de um item, comece pelo painel.</p>
+              </div>
+            </div>
+
+            <div className="tip">
+              <strong>Segurança de cozinha</strong>
+              Carne crua e comida queimada podem fazer mal. Forno esquecido pode iniciar incêndio.
+              Cozinhe em lugar seguro, observe a barra do alimento e desligue a fonte de calor ao sair.
+            </div>
+          </section>
+
+          <section className="guide-section" id="veiculos">
+            <div className="section-number">07</div>
+            <p className="kicker">Mobilidade custa manutenção</p>
+            <h2>Carros e gasolina</h2>
+            <p className="lead">
+              Carro encurta o mapa, carrega peso e também cria problemas caros. Aqui eles aparecem pouco,
+              costumam ter pouca gasolina e precisam ser tratados como recurso do grupo.
+            </p>
+
+            <div className="vehicle-grid">
+              <article>
+                <span>01</span><h3>Entre e confira</h3>
+                <p>Veja combustível, bateria, condição do motor e painel. O Realistic Dashboard deixa medidores e avisos mais úteis.</p>
+              </article>
+              <article>
+                <span>02</span><h3>Encontre a chave</h3>
+                <p>Ela pode estar no veículo, por perto ou com um antigo dono. Hotwire só funciona quando o personagem cumpre os requisitos do jogo.</p>
+              </article>
+              <article>
+                <span>03</span><h3>Inspecione as peças</h3>
+                <p>Abra a mecânica do veículo. Pneu, freio, suspensão, bateria e motor ruins mudam o risco da viagem.</p>
+              </article>
+              <article>
+                <span>04</span><h3>Dirija como se fosse raro</h3>
+                <p>Colisão estraga carro e personagem. Sair cedo demais de um veículo em movimento também pode causar dano.</p>
+              </article>
+            </div>
+
+            <h3>O combustível é finito</h3>
+            <div className="fuel-facts">
+              <p><strong>Nos carros</strong><span>o tanque inicial está baixo. Olhe antes de planejar a viagem.</span></p>
+              <p><strong>Nos postos</strong><span>as bombas têm estoque limitado e algumas já podem estar vazias.</span></p>
+              <p><strong>Sem energia</strong><span>a bomba não funciona. Um gerador do lado de fora pode alimentar o posto.</span></p>
+              <p><strong>No longo prazo</strong><span>Peachey&apos;s Biofuel permite produzir e refinar biocombustível, mas exige uma cadeia de produção.</span></p>
+            </div>
+
+            <details>
+              <summary>O que nossos mods mudam nos veículos?</summary>
+              <div>
+                WayMoreCars amplia variedade e customização. Vehicle Repair Overhaul aprofunda reparos,
+                e Vehicle Salvage Overhaul permite desmontar veículos danificados por materiais. Use o painel
+                de mecânica para ver ferramentas, skills e peças exigidas em cada trabalho.
+              </div>
+            </details>
+            <details>
+              <summary>Qual é o kit básico para buscar gasolina?</summary>
+              <div>
+                Galão, veículo com espaço, gerador abastecido, manual do gerador e uma rota limpa. Coloque
+                o gerador do lado de fora, conecte e ligue somente quando a área estiver segura.
+              </div>
+            </details>
+          </section>
+
           <section className="guide-section" id="base">
-            <div className="section-number">05</div>
+            <div className="section-number">08</div>
             <p className="kicker">A semana dois começa cedo</p>
             <h2>Base, água, energia e comida</h2>
             <p className="lead">
@@ -321,6 +491,17 @@ export default function Home() {
               </ul>
             </div>
 
+            <div className="deadline utility-clock">
+              <p className="micro-label">Datas aproximadas da campanha</p>
+              <div><strong>Por volta do dia 15</strong><span>água e luz começam a piscar e cair por períodos curtos e imprevisíveis</span></div>
+              <div><strong>Perto do dia 30</strong><span>chega o corte total; a base precisa funcionar sem a rede pública</span></div>
+            </div>
+            <p>
+              A intermitência é aviso, não calendário exato. Tenha água armazenada, captação de chuva e
+              uma alternativa para cozinhar. Gerador fica do lado de fora, precisa de combustível e não
+              resolve a falta de água.
+            </p>
+
             <h3>Transporte é multiplicador</h3>
             <p>
               Carrinho de mão ou de supermercado muda uma mudança de base porque reduz o peso que o
@@ -337,7 +518,7 @@ export default function Home() {
           </section>
 
           <section className="guide-section" id="grupo">
-            <div className="section-number">06</div>
+            <div className="section-number">09</div>
             <p className="kicker">Coop exige que o grupo se encontre</p>
             <h2>Facção, safehouse, mapa e convivência</h2>
             <p className="lead">
@@ -372,7 +553,7 @@ export default function Home() {
           </section>
 
           <section className="guide-section" id="duvidas">
-            <div className="section-number">07</div>
+            <div className="section-number">10</div>
             <p className="kicker">Consulta rápida</p>
             <h2>Dúvidas que aparecem toda semana</h2>
 

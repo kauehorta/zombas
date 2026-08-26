@@ -663,6 +663,61 @@ details > div {
   width: min(100%, 800px);
 }
 
+.learning-loop,
+.media-grid,
+.vehicle-grid {
+  display: grid;
+  width: min(100%, 800px);
+  margin: 2rem 0;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, 0.35);
+}
+
+.learning-loop {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.learning-loop article,
+.media-grid article,
+.vehicle-grid article {
+  padding: 1.25rem;
+}
+
+.learning-loop article + article,
+.media-grid article + article {
+  border-left: 1px solid var(--line);
+}
+
+.learning-loop span,
+.vehicle-grid > article > span {
+  color: var(--rust);
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.learning-loop h3,
+.media-grid h3,
+.vehicle-grid h3 {
+  margin: 0.35rem 0 0.5rem;
+}
+
+.learning-loop p,
+.media-grid article > p:last-child,
+.vehicle-grid p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.media-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.media-grid .micro-label {
+  color: var(--rust);
+}
+
 .deadline {
   width: min(100%, 800px);
   margin: 2rem 0;
@@ -694,6 +749,21 @@ details > div {
 .journal-critical {
   background: var(--moss-dark);
   box-shadow: 7px 7px 0 #111b15;
+}
+
+.status-note {
+  width: min(100%, 800px);
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--gold);
+  background: #f6e5c6;
+  font-family: system-ui, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.status-note strong {
+  color: #6f4610;
 }
 
 .journal-steps {
@@ -739,6 +809,106 @@ details > div {
 
 .checklist li {
   margin: 0.45rem 0;
+}
+
+.basic-flow {
+  width: min(100%, 800px);
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: cooking;
+}
+
+.basic-flow li {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.7fr) 1.3fr;
+  gap: 1rem;
+  position: relative;
+  padding: 1rem 0 1rem 3rem;
+  border-top: 1px solid var(--line);
+  counter-increment: cooking;
+}
+
+.basic-flow li::before {
+  content: counter(cooking);
+  position: absolute;
+  top: 0.8rem;
+  left: 0;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rust);
+  color: var(--white);
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.basic-flow strong {
+  color: var(--moss-dark);
+}
+
+.basic-flow span {
+  font-size: 0.95rem;
+}
+
+.cooking-notes {
+  margin: 2rem 0;
+}
+
+.vehicle-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.vehicle-grid article:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+
+.vehicle-grid article:nth-child(-n + 2) {
+  border-bottom: 1px solid var(--line);
+}
+
+.fuel-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 800px);
+  margin: 1.2rem 0 2rem;
+  background: var(--moss-dark);
+  color: var(--white);
+}
+
+.fuel-facts p {
+  margin: 0;
+  padding: 1.15rem;
+}
+
+.fuel-facts p:nth-child(odd) {
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.fuel-facts p:nth-child(-n + 2) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.fuel-facts strong,
+.fuel-facts span {
+  display: block;
+}
+
+.fuel-facts strong {
+  color: #f2c77f;
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.fuel-facts span {
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .social-grid {
@@ -945,8 +1115,30 @@ footer nav {
   .principles,
   .two-column-copy,
   .social-grid,
-  .journal-steps {
+  .journal-steps,
+  .learning-loop,
+  .media-grid,
+  .vehicle-grid,
+  .fuel-facts {
     grid-template-columns: 1fr;
+  }
+
+  .learning-loop article + article,
+  .media-grid article + article,
+  .vehicle-grid article,
+  .fuel-facts p {
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .vehicle-grid article:last-child,
+  .fuel-facts p:last-child {
+    border-bottom: 0;
+  }
+
+  .basic-flow li {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
   }
 
   .principles article {

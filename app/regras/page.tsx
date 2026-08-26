@@ -3,6 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Regras do servidor",
   description: "Regras de entrada, convivência, PVP, safehouse e administração do Zombas.",
+  openGraph: {
+    title: "Regras do servidor | Zombas",
+    description: "As regras que protegem a campanha cooperativa e a noite de jogo de todo mundo.",
+    url: "/regras",
+  },
 };
 
 const steamCollection = "https://steamcommunity.com/sharedfiles/filedetails/?id=3790189787";
