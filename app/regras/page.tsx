@@ -36,9 +36,10 @@ export default function RulesPage() {
           <p className="kicker">01</p>
           <h2>Entrada no servidor</h2>
           <p>
-            Assine a <a href={steamCollection} target="_blank" rel="noreferrer">coleção inteira</a> antes
-            de entrar ou deixe o jogo baixar os mods na primeira conexão. O primeiro download pode
-            demorar. O servidor dá kick quando algum arquivo obrigatório está incompleto ou desatualizado.
+            Assine a <a href={steamCollection} target="_blank" rel="noreferrer">coleção</a> antes de entrar
+            e deixe o jogo concluir qualquer download complementar na primeira conexão. O primeiro download
+            pode demorar. O servidor pode desconectar quem estiver com algum arquivo obrigatório incompleto
+            ou desatualizado.
           </p>
           <div className="rule-note"><strong>Senha do servidor</strong><span>Peça no grupo. Não publique em lugar aberto.</span></div>
         </section>
@@ -78,7 +79,8 @@ export default function RulesPage() {
             reais sem visita, a reivindicação pode cair.
           </p>
           <p>
-            Dormir é necessário. Cada pessoa pode deitar no próprio horário, mas o relógio só acelera
+            Dormir é necessário. Cada pessoa pode deitar no próprio horário. Dormir sozinho já rende um
+            cochilo acelerado até cerca de 85% de disposição, mas o relógio só pula direto pro amanhecer
             quando todos os jogadores online estão dormindo. Avise no chat antes de apagar.
           </p>
         </section>

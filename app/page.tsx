@@ -2,14 +2,15 @@ const steamCollection = "https://steamcommunity.com/sharedfiles/filedetails/?id=
 
 const navigation = [
   ["#primeira-hora", "Primeira hora"],
-  ["#progresso", "Skills, livros, TV e VHS"],
+  ["#progresso", "Habilidades, livros, TV e VHS"],
   ["#combate", "Combate e furtividade"],
   ["#mundo", "O mundo e suas ameaças"],
   ["#diario", "Diário, morte e recomeço"],
+  ["#base", "Base, água, energia e comida"],
   ["#cozinha", "Cozinha e nossos mods"],
   ["#veiculos", "Carros e gasolina"],
-  ["#base", "Base, água, energia e comida"],
   ["#grupo", "Facção, safehouse e mapa"],
+  ["#inesperado", "Mecânicas que pegam de surpresa"],
   ["#duvidas", "Dúvidas rápidas"],
 ] as const;
 
@@ -23,11 +24,11 @@ function Navigation({ mobile = false }: { mobile?: boolean }) {
         </a>
       ))}
       <a href="/regras">
-        <span>11</span>
+        <span>12</span>
         Regras do servidor
       </a>
       <a href="/mods">
-        <span>12</span>
+        <span>13</span>
         Mods atuais
       </a>
     </>
@@ -155,7 +156,7 @@ export default function Home() {
                 <strong>This Is Your Life</strong> usa K para abrir o diário de vida do personagem.
                 <strong> True Smoking</strong> usa a mesma tecla para dar um trago no cigarro aceso.
                 Quando as duas ações ficam em K, uma pode atrapalhar a outra. Se o personagem fuma,
-                vale resolver isso antes de o caos começar — e ele começa cedo.
+                vale resolver isso antes de o caos começar. E ele começa cedo.
               </p>
               <ol>
                 <li>Abra <strong>Options</strong> e depois <strong>Key Bindings</strong>.</li>
@@ -168,7 +169,7 @@ export default function Home() {
               <li><strong>Baixe os mods.</strong><span>Assine a coleção ou deixe o jogo cuidar disso na primeira conexão. Só não feche tudo no meio do download.</span></li>
               <li><strong>Vasculhe a casa inicial.</strong><span>Água, comida, curativo, mochila e uma arma branca já sustentam a primeira saída.</span></li>
               <li><strong>Avise onde nasceu.</strong><span>Dizer a cidade e a região evita que o resgate vire uma excursão de madrugada.</span></li>
-              <li><strong>Prepare o Bound Journal.</strong><span>Faça o diário cedo e transcreva novamente depois de ganhar skills importantes. Backup velho é quase decoração.</span></li>
+              <li><strong>Prepare o Bound Journal.</strong><span>Faça o diário cedo e transcreva novamente depois de ganhar habilidades importantes. Um diário desatualizado quase não ajuda.</span></li>
             </ol>
 
             <div className="tip">
@@ -176,14 +177,21 @@ export default function Home() {
               Quintais, fundos de terreno e cercas baixas oferecem mais rotas que o meio da rua.
               Antes de pular, olhe onde vai cair: a cerca ajuda, mas não oferece suporte pós-venda.
             </div>
+
+            <div className="tip">
+              <strong>Moodles não são decoração</strong>
+              Os ícones no canto da tela empilham efeitos de verdade: pânico atrapalha a pontaria,
+              dor esconde um ferimento que está piorando, e frio com roupa molhada vira hipotermia
+              antes que você perceba. Olhe o círculo de moodles antes de decidir "só mais uma casa".
+            </div>
           </section>
 
           <section className="guide-section" id="progresso">
             <div className="section-number">02</div>
             <p className="kicker">Leia primeiro, faça besteira depois</p>
-            <h2>Skills, livros, TV e VHS</h2>
+            <h2>Habilidades, livros, TV e VHS</h2>
             <p className="lead">
-              Skills representam o que seu personagem sabe fazer. Quase todas vão do nível 0 ao 10
+              Habilidades representam o que seu personagem sabe fazer. Quase todas vão do nível 0 ao 10
               e sobem com XP. Livros, televisão e VHS aceleram o aprendizado de maneiras diferentes;
               nenhum deles instala conhecimento por osmose.
             </p>
@@ -223,9 +231,9 @@ export default function Home() {
               </article>
               <article>
                 <p className="micro-label">VHS</p>
-                <h3>VHS é o streaming do apocalipse</h3>
+                <h3>VHS guarda o programa para depois</h3>
                 <p>
-                  Fitas guardam programas para depois e podem ensinar skills ou receitas numa televisão
+                  Fitas podem ensinar habilidades ou receitas numa televisão
                   com aparelho de VHS. O Obvious Skill Tapes marca em verde as que realmente ensinam algo.
                 </p>
               </article>
@@ -253,7 +261,7 @@ export default function Home() {
             <h2>Combate e furtividade</h2>
             <p className="lead">
               Combate seguro depende de espaço, visão do entorno e uma rota para recuar. Se a luta não
-              deixa saída, ela já começou mal — mesmo que a música imaginária esteja épica.
+              deixa saída, ela já começou mal, mesmo que a música imaginária esteja épica.
             </p>
 
             <div className="principles">
@@ -284,8 +292,10 @@ export default function Home() {
             <details>
               <summary>Como abrir portas e janelas trancadas?</summary>
               <div>
-                Pé-de-cabra abre porta comum, janela e portão de garagem. Lockpick não abre janela,
-                e grade metálica de delegacia não cede aos dois. Abrir uma casa também pode disparar alarme.
+                Pé-de-cabra abre porta comum, janela e portão de garagem. No Zombas, lockpick abre porta
+                e veículo, mas não janela: esse atalho está desligado de propósito. Em porta reforçada ou
+                grade metálica, não conte com um atalho. O Common Sense está configurado para não forçá-las;
+                o Neat Lockpicking tem uma rota própria no código, mas ela ainda não foi testada no Zombas.
               </div>
             </details>
           </section>
@@ -325,11 +335,12 @@ export default function Home() {
                 <p>Armas de fogo aparecem com mais facilidade que munição. Confira o calibre e o estoque antes de depender de uma arma.</p>
               </div>
               <div>
-                <h3>Bandits existem — e o manual ainda está sendo escrito</h3>
+                <h3>Bandits existem. Não dependa de uma única defesa</h3>
                 <p>
-                  O mod adiciona sobreviventes, inclusive grupos hostis. O comportamento deles com
-                  recipientes dentro de safehouses ainda está sendo conferido; por enquanto, não trate
-                  a proteção da safehouse como garantia contra NPCs.
+                  O mod adiciona sobreviventes, inclusive grupos hostis. As regras de safehouse protegem
+                  contra outros jogadores, mas não há validação em jogo suficiente para prometer a mesma
+                  proteção contra NPCs. Guarde os itens mais importantes em mais de um lugar e trate
+                  qualquer encontro com sobreviventes como um risco.
                 </p>
               </div>
             </div>
@@ -346,7 +357,7 @@ export default function Home() {
             <p className="kicker">Recuperação parcial de progressão</p>
             <h2>Diário, morte e recomeço</h2>
             <p className="lead">
-              O <strong>Bound Journal</strong> é um backup parcial da progressão, não um Ctrl+Z da morte.
+              O <strong>Bound Journal</strong> é uma recuperação parcial da progressão, não apaga uma morte.
               Ele registra XP e receitas elegíveis no momento da transcrição, mas não devolve equipamento
               nem busca o corpo do personagem anterior.
             </p>
@@ -357,31 +368,29 @@ export default function Home() {
             />
 
             <div className="critical journal-critical">
-              <div className="critical-tag">Mudança pendente para o próximo reinício seguro</div>
-              <h3>A regra planejada é recuperar 50% do XP elegível</h3>
+              <div className="critical-tag">Regra ativa desde 26/08</div>
+              <h3>O diário recupera 50% do XP elegível</h3>
               <p>
-                Quando o ajuste entrar ao vivo, o personagem novo recuperará metade do XP elegível que
-                estava gravado. Isso não significa metade do número do nível: cada nível custa uma quantidade
-                diferente de XP, então o resultado pode parar no meio de uma barra.
+                O personagem novo recupera metade do XP elegível que estava gravado no diário. Isso não
+                significa metade do número do nível: cada nível custa uma quantidade diferente de XP,
+                então o resultado pode parar no meio de uma barra. Antes de 26/08 a taxa era 100%; caiu
+                para 50% para que a morte continue custando progresso de verdade.
               </p>
               <div className="journal-steps">
-                <p><strong>1. Fabrique</strong><span>Caderno, cola, três tiras de couro e uma linha. A receita se chama <em>Bind Journal Together</em>.</span></p>
+                <p><strong>1. Fabrique</strong><span>Use um caderno, diário ou bloco de notas, cola, três tiras de couro e uma linha. Barbante ou linha de pesca também servem. A receita aparece como <em>Vincular diário</em>.</span></p>
                 <p><strong>2. Transcreva</strong><span>Com o item em mãos, use <em>Transcribe Into Journal</em>. Atualize depois de ganhar perícias importantes; diário desatualizado recupera progresso desatualizado.</span></p>
                 <p><strong>3. Recupere</strong><span>Depois de morrer, encontre o diário no corpo anterior ou no lugar onde o guardou e leia com o personagem novo.</span></p>
               </div>
             </div>
 
-            <div className="status-note" role="note">
-              <strong>Status confirmado em 26/08:</strong> o servidor ao vivo ainda está em 100%.
-              A redução para 50% já foi decidida e aguarda um reinício sem jogadores online.
-            </div>
-
             <details>
               <summary>O que o diário não devolve?</summary>
               <div>
-                Força, Condicionamento, XP de televisão e vídeo, além dos níveis iniciais dados por
-                profissão ou traço ficam fora. Personagens com Analfabeto não usam o sistema. Receitas
-                aprendidas são registradas, mas XP ganho depois da última transcrição também fica de fora.
+                Força e Condicionamento ficam de fora por padrão (são skills passivas, e a recuperação de
+                passivas está zerada). XP de televisão e VHS também não entra, assim como os níveis
+                iniciais dados por profissão ou traço. Personagens com Analfabeto não conseguem ler o
+                diário. Receitas aprendidas são registradas, mas XP ganho depois da última transcrição
+                fica de fora até você transcrever de novo.
               </div>
             </details>
             <details>
@@ -393,96 +402,8 @@ export default function Home() {
             </details>
           </section>
 
-          <section className="guide-section" id="cozinha">
-            <div className="section-number">06</div>
-            <p className="kicker">Sistema de cozinha</p>
-            <h2>Como cozinhar aqui</h2>
-            <p className="lead">
-              Cozinhar começa com uma base, ingredientes e a fonte de calor correta. Os mods ampliam as
-              receitas e organizam o processo, mas não revogam utensílio, skill, calor nem tempo. O painel
-              ajuda; ele não cozinha por você.
-            </p>
-
-            <ol className="basic-flow">
-              <li><strong>Escolha uma base.</strong><span>Panela com água, tigela, frigideira, pão e outros itens aceitam combinações diferentes.</span></li>
-              <li><strong>Abra o painel.</strong><span>Clique com o botão direito em um alimento compatível e use <em>Open Cooking Panel</em>.</span></li>
-              <li><strong>Monte a receita.</strong><span>O Project Cook mostra ingredientes próximos, temperos, nutrição, nível exigido e o que ainda está faltando.</span></li>
-              <li><strong>Cozinhe e vigie.</strong><span>Coloque no forno, fogão, churrasqueira ou fogueira adequada. Retire quando estiver cozido, antes de queimar.</span></li>
-            </ol>
-
-            <div className="two-column-copy cooking-notes">
-              <div>
-                <h3>Project Cook organiza as receitas</h3>
-                <p>Ele reúne receitas, ingredientes próximos e requisitos num painel. É organização, não passe livre culinário.</p>
-              </div>
-              <div>
-                <h3>Vanilla Foods Expanded adiciona conteúdo</h3>
-                <p>Ele acrescenta uma variedade enorme de alimentos e receitas. Se não souber o uso de um item, comece pelo painel.</p>
-              </div>
-            </div>
-
-            <div className="tip">
-              <strong>Segurança de cozinha</strong>
-              Carne crua e comida queimada podem fazer mal. Forno esquecido pode iniciar incêndio — e
-              não manda notificação antes. Observe a barra do alimento e desligue a fonte de calor ao sair.
-            </div>
-          </section>
-
-          <section className="guide-section" id="veiculos">
-            <div className="section-number">07</div>
-            <p className="kicker">Uso e manutenção</p>
-            <h2>Carros e gasolina</h2>
-            <p className="lead">
-              Veículos encurtam viagens e carregam muito loot, mas aparecem pouco, costumam ter pouca
-              gasolina e pedem manutenção. Trate carro como recurso raro, não como kart descartável.
-            </p>
-
-            <div className="vehicle-grid">
-              <article>
-                <span>01</span><h3>Entre e confira</h3>
-                <p>Veja combustível, bateria, condição do motor e avisos. O Realistic Dashboard faz o painel deixar de ser decoração.</p>
-              </article>
-              <article>
-                <span>02</span><h3>Encontre a chave</h3>
-                <p>Ela pode estar no veículo, por perto ou com um antigo dono. Hotwire só funciona quando o personagem cumpre os requisitos do jogo.</p>
-              </article>
-              <article>
-                <span>03</span><h3>Inspecione as peças</h3>
-                <p>Abra a mecânica do veículo. Pneu, freio, suspensão, bateria e motor ruins mudam o risco da viagem.</p>
-              </article>
-              <article>
-                <span>04</span><h3>Evite colisões</h3>
-                <p>Colisão estraga carro e personagem. Sair cedo demais de um veículo em movimento também pode causar dano.</p>
-              </article>
-            </div>
-
-            <h3>O combustível é finito. O posto também.</h3>
-            <div className="fuel-facts">
-              <p><strong>Nos carros</strong><span>o tanque inicial está baixo. Olhe antes de planejar a viagem.</span></p>
-              <p><strong>Nos postos</strong><span>as bombas têm estoque limitado e algumas já podem estar vazias.</span></p>
-              <p><strong>Sem energia</strong><span>a bomba não funciona. Um gerador do lado de fora pode alimentar o posto.</span></p>
-              <p><strong>No longo prazo</strong><span>Peachey&apos;s Biofuel permite produzir e refinar biocombustível, mas exige uma cadeia de produção.</span></p>
-            </div>
-
-            <details>
-              <summary>O que nossos mods mudam nos veículos?</summary>
-              <div>
-                WayMoreCars amplia variedade e customização. Vehicle Repair Overhaul aprofunda reparos,
-                e Vehicle Salvage Overhaul permite desmontar veículos danificados por materiais. Use o painel
-                de mecânica para ver ferramentas, skills e peças exigidas em cada trabalho.
-              </div>
-            </details>
-            <details>
-              <summary>Qual é o kit básico para buscar gasolina?</summary>
-              <div>
-                Galão, veículo com espaço, gerador abastecido, manual do gerador e uma rota limpa. O
-                gerador fica do lado de fora — monóxido de carbono não respeita safehouse.
-              </div>
-            </details>
-          </section>
-
           <section className="guide-section" id="base">
-            <div className="section-number">08</div>
+            <div className="section-number">06</div>
             <p className="kicker">Preparação da base</p>
             <h2>Base, água, energia e comida</h2>
             <p className="lead">
@@ -531,12 +452,100 @@ export default function Home() {
             </details>
           </section>
 
+          <section className="guide-section" id="cozinha">
+            <div className="section-number">07</div>
+            <p className="kicker">Sistema de cozinha</p>
+            <h2>Como cozinhar aqui</h2>
+            <p className="lead">
+              Cozinhar começa com uma base, ingredientes e a fonte de calor correta. Os mods ampliam as
+              receitas e organizam o processo, mas não revogam utensílio, skill, calor nem tempo. O painel
+              ajuda; ele não cozinha por você.
+            </p>
+
+            <ol className="basic-flow">
+              <li><strong>Escolha uma base.</strong><span>Panela com água, tigela, frigideira, pão e outros itens aceitam combinações diferentes.</span></li>
+              <li><strong>Abra o painel.</strong><span>Clique com o botão direito em um alimento compatível e use <em>Open Cooking Panel</em>.</span></li>
+              <li><strong>Monte a receita.</strong><span>O Project Cook mostra ingredientes próximos, temperos, nutrição, nível exigido e o que ainda está faltando.</span></li>
+              <li><strong>Cozinhe e vigie.</strong><span>Coloque no forno, fogão, churrasqueira ou fogueira adequada. Retire quando estiver cozido, antes de queimar.</span></li>
+            </ol>
+
+            <div className="two-column-copy cooking-notes">
+              <div>
+                <h3>Project Cook organiza as receitas</h3>
+                <p>Ele reúne receitas, ingredientes próximos e requisitos num painel. É organização, não passe livre culinário.</p>
+              </div>
+              <div>
+                <h3>Vanilla Foods Expanded adiciona conteúdo</h3>
+                <p>Ele acrescenta uma variedade enorme de alimentos e receitas. Se não souber o uso de um item, comece pelo painel.</p>
+              </div>
+            </div>
+
+            <div className="tip">
+              <strong>Segurança de cozinha</strong>
+              Carne crua e comida queimada podem fazer mal. Forno esquecido pode iniciar incêndio e
+              não manda notificação antes. Observe a barra do alimento e desligue a fonte de calor ao sair.
+            </div>
+          </section>
+
+          <section className="guide-section" id="veiculos">
+            <div className="section-number">08</div>
+            <p className="kicker">Uso e manutenção</p>
+            <h2>Carros e gasolina</h2>
+            <p className="lead">
+              Veículos encurtam viagens e carregam muitos suprimentos, mas aparecem pouco, costumam ter pouca
+              gasolina e pedem manutenção. Trate carro como recurso raro, não como kart descartável.
+            </p>
+
+            <div className="vehicle-grid">
+              <article>
+                <span>01</span><h3>Entre e confira</h3>
+                <p>Veja combustível, bateria, condição do motor e avisos. O Realistic Dashboard faz o painel deixar de ser decoração.</p>
+              </article>
+              <article>
+                <span>02</span><h3>Encontre a chave</h3>
+                <p>Ela pode estar no veículo, por perto ou com um antigo dono. Hotwire só funciona quando o personagem cumpre os requisitos do jogo.</p>
+              </article>
+              <article>
+                <span>03</span><h3>Inspecione as peças</h3>
+                <p>Abra a mecânica do veículo. Pneu, freio, suspensão, bateria e motor ruins mudam o risco da viagem.</p>
+              </article>
+              <article>
+                <span>04</span><h3>Evite colisões</h3>
+                <p>Colisão estraga carro e personagem. Sair cedo demais de um veículo em movimento também pode causar dano.</p>
+              </article>
+            </div>
+
+            <h3>O combustível é finito. O posto também.</h3>
+            <div className="fuel-facts">
+              <p><strong>Nos carros</strong><span>o tanque inicial está baixo. Olhe antes de planejar a viagem.</span></p>
+              <p><strong>Nos postos</strong><span>as bombas têm estoque limitado e algumas já podem estar vazias.</span></p>
+              <p><strong>Sem energia</strong><span>a bomba não funciona. Um gerador do lado de fora pode alimentar o posto. É o mesmo recurso que também pode fazer falta na sua base.</span></p>
+              <p><strong>No longo prazo</strong><span>Peachey&apos;s Biofuel permite produzir e refinar biocombustível, mas exige uma cadeia de produção.</span></p>
+            </div>
+
+            <details>
+              <summary>O que nossos mods mudam nos veículos?</summary>
+              <div>
+                WayMoreCars amplia variedade e customização. Vehicle Repair Overhaul aprofunda reparos,
+                e Vehicle Salvage Overhaul permite desmontar veículos danificados por materiais. Use o painel
+                de mecânica para ver ferramentas, habilidades e peças exigidas em cada trabalho.
+              </div>
+            </details>
+            <details>
+              <summary>Qual é o kit básico para buscar gasolina?</summary>
+              <div>
+                Galão, veículo com espaço, gerador abastecido, manual do gerador e uma rota limpa. O
+                gerador fica do lado de fora. Monóxido de carbono não respeita safehouse.
+              </div>
+            </details>
+          </section>
+
           <section className="guide-section" id="grupo">
             <div className="section-number">09</div>
             <p className="kicker">Organização do grupo</p>
             <h2>Facção, safehouse, mapa e convivência</h2>
             <p className="lead">
-              O User Panel concentra facção e safehouse. O botão fica na barra ao lado dos itens
+              O painel de usuário, chamado <em>User Panel</em> no jogo, concentra facção e safehouse. O botão fica na barra ao lado dos itens
               equipados, no canto inferior da tela. Não é intuitivo, por isso está escrito aqui.
             </p>
 
@@ -558,6 +567,16 @@ export default function Home() {
               perde a proteção da safehouse.
             </div>
 
+            <div className="tip">
+              <strong>Dormir sozinho não é tempo perdido</strong>
+              Cada um deita na própria hora. Sem o grupo inteiro dormindo, o relógio não pula a noite.
+              mas o True Sleep te dá um cochilo acelerado: o personagem descansa bem mais rápido que o
+              normal e acorda sozinho perto de 85% de disposição. Só o descanso total e o salto direto
+              pro amanhecer dependem de todo mundo dormindo ao mesmo tempo. Por isso ainda vale avisar
+              no chat antes de apagar: quem está sozinho já aproveita, quem quer a noite inteira de
+              graça precisa de companhia.
+            </div>
+
             <p>
               Não pegue coisas da base dos outros sem combinar. Avise se levar carro. Fale antes de
               mexer em gerador, plantação ou estoque coletivo.
@@ -565,16 +584,75 @@ export default function Home() {
             <a className="text-link" href="/regras">Ler as regras completas do servidor</a>
           </section>
 
-          <section className="guide-section" id="duvidas">
+          <section className="guide-section" id="inesperado">
             <div className="section-number">10</div>
+            <p className="kicker">Descoberta, não decoreba</p>
+            <h2>Mecânicas que pegam de surpresa</h2>
+            <p className="lead">
+              A lista completa de mods está em outra página. Aqui só entra o que muda como você joga de
+              um jeito que ninguém espera na primeira vez que esbarra nisso.
+            </p>
+
+            <div className="checklist">
+              <h3>Coisas que existem aqui</h3>
+              <ul>
+                <li><strong>Amputar o próprio braço</strong> é uma opção real do The Only Cure, para tentar travar uma mordida antes que vire sentença de morte. É tratamento de emergência, não um botão de segunda chance.</li>
+                <li><strong>Gazua tem minigame de pinos</strong>: porta e veículo abrem por perícia e sequência, não por barra de progresso automática.</li>
+                <li><strong>Escada é escada de verdade</strong> com o Ladders?!: dá para subir e descer um telhado sem precisar arrumar um buraco.</li>
+                <li><strong>Arco e besta existem</strong> via ClassicBows, com munição recuperável e sem o barulho de uma arma de fogo.</li>
+                <li><strong>Computador do mapa funciona</strong>: o Computer Mod transforma os PCs de cenário em objetos interativos de verdade.</li>
+                <li><strong>Noite de tabuleiro é jogável</strong>: Game Night roda Uno, Monopoly e Catan contra outro sobrevivente, sem sair do apocalipse.</li>
+                <li><strong>Traço pode nascer ou sumir</strong> com o Evolving Traits World: hábito vira traço com o tempo, então a ficha do personagem muda sozinha.</li>
+                <li><strong>Carrinho empurrável existe</strong> com SaucedCarts: carrega volume sem gastar uma gota de gasolina.</li>
+              </ul>
+            </div>
+
+            <details>
+              <summary>Gazua, pé-de-cabra e costura: como usar</summary>
+              <div>
+                <p>
+                  <strong>Gazua.</strong> Serve para tentar abrir portas e veículos trancados no minigame de
+                  pinos. Para fazer a versão artesanal, aprenda <em>Fazer Gazua Artesanal</em>, tenha uma
+                  chave de fenda e gaste um clipe de papel. Ladrão começa com essa receita; os demais a
+                  aprendem na <em>Lockpicking Magazine</em>. Com a gazua no inventário, clique com o botão
+                  direito no alvo e escolha a opção de arrombamento. Em Arrombamento nível 0, a artesanal
+                  tem 50% de chance de quebrar a cada pino errado. A chance cai cinco pontos por nível,
+                  até o mínimo de 5%. Quando ela quebra, a sequência de pinos recomeça; uma falha também
+                  faz barulho. Gazua de janela está desativada no Zombas.
+                </p>
+                <p>
+                  <strong>Pé-de-cabra.</strong> O Common Sense aceita o comum ou o forjado. Com ele no
+                  inventário, use a ação de forçar em portas comuns, janelas, portões de garagem ou portas
+                  de veículo. Força maior melhora a chance de sucesso. A tentativa faz barulho e cansa o
+                  personagem; nas janelas há 20% de chance de quebrar o vidro. No Common Sense, portas
+                  reforçadas estão bloqueadas no Zombas. O Neat Lockpicking pode mostrar uma ação separada
+                  de pé-de-cabra para elas, mas esse caminho ainda não foi validado em jogo no servidor.
+                  Não o trate como entrada garantida.
+                </p>
+                <p>
+                  <strong>Costura.</strong> Inspecione uma roupa no inventário para abrir o painel por partes
+                  do corpo. Selecione a parte e clique com o botão direito para remendar um furo ou adicionar
+                  proteção. Leve linha, agulha e tiras de pano, jeans ou couro. Uma peça de material que
+                  combina com a área marcada recebe 12 XP extras; uma que não combina recebe 6. O Interactive
+                  Tailoring organiza essa inspeção e a escolha de cada parte. O Repair Any Clothes dá tipo de
+                  couro às roupas que cobrem o corpo e não tinham tipo de tecido, para que entrem nesse mesmo
+                  processo. Nenhum dos dois conserta roupa automaticamente.
+                </p>
+              </div>
+            </details>
+          </section>
+
+          <section className="guide-section" id="duvidas">
+            <div className="section-number">11</div>
             <p className="kicker">Consulta rápida</p>
             <h2>Dúvidas que aparecem toda semana</h2>
 
             <details>
               <summary>Por que tomei kick ao tentar entrar?</summary>
               <div>
-                Quase sempre são mods incompletos ou desatualizados. Feche o jogo, espere a coleção
-                terminar de baixar e tente novamente. O clássico “reinicia e espera” tem fundamento neste caso.
+                Geralmente faltou download ou atualização de mod. Assine a coleção e deixe a primeira conexão
+                baixar o complemento que o servidor pedir. Não feche o jogo durante o download; depois tente
+                entrar de novo.
               </div>
             </details>
             <details>

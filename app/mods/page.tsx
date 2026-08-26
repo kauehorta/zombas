@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mods atuais",
-  description: "Os 91 itens da Workshop ativos no Zombas, com uma descrição curta do que cada um muda.",
+  description: "Os 93 itens da Workshop ativos no Zombas, com uma descrição curta do que cada um muda.",
   openGraph: {
     title: "Mods atuais | Zombas",
-    description: "Os 91 itens da Workshop ativos no Zombas, sem exigir pós-graduação em descrição de mod.",
+    description: "Os 93 itens da Workshop ativos no Zombas, sem exigir pós-graduação em descrição de mod.",
     url: "/mods",
   },
 };
@@ -21,7 +21,7 @@ const categories = [
 ] as const;
 
 const mods = [
-  ["3540903327", "Pack Mule", "Ajusta o manuseio de equipamentos e as opções ligadas à capacidade de carga.", "gameplay"],
+  ["3540903327", "Pack Mule", "Adiciona compartimentos extras visíveis no personagem (relógio, lanterna, maçarico, coldre, cantil e outros) que não brigam com o espaço da mochila.", "gameplay"],
   ["3077900375", "Mod Update and Alert System", "Infraestrutura que ajuda outros mods a exibir avisos e informações de atualização.", "support"],
   ["3631989559", "'69 Dodge Charger", "Adiciona o Dodge Charger 1969 e suas peças ao mundo.", "vehicles"],
   ["3756938756", "'69 Ford Mustang", "Adiciona versões do Ford Mustang 1969.", "vehicles"],
@@ -34,7 +34,7 @@ const mods = [
   ["3749026793", "Carry Visible Items In Hands", "Mostra nas mãos vários objetos grandes que normalmente ficariam invisíveis.", "interface"],
   ["3461263912", "Clean HotBar", "Deixa a barra de atalhos e os indicadores dos itens equipados mais claros.", "interface"],
   ["3437629766", "CleanUI", "Reorganiza as janelas de inventário e saque.", "interface"],
-  ["3750253491", "Common Sense", "Adiciona interações práticas com portas, recipientes e ferramentas — o bom senso que o menu original esqueceu.", "gameplay"],
+  ["3750253491", "Common Sense", "Com pé-de-cabra comum ou forjado, permite tentar abrir portas comuns, janelas, garagens e veículos trancados. A chance depende de Força; uma janela pode quebrar. Portas reforçadas estão desligadas no Zombas.", "gameplay"],
   ["3725497089", "Computer Mod", "Transforma computadores do mapa em objetos interativos.", "content"],
   ["3682936016", "Equipment UI", "Exibe equipamentos e slots do personagem em um painel próprio.", "interface"],
   ["2896041179", "errorMagnifier", "Mostra erros de mods de forma mais legível para diagnóstico.", "support"],
@@ -49,7 +49,7 @@ const mods = [
   ["3610677934", "Hot Brass", "Fornece o sistema visual de ejeção de estojos usado por armas compatíveis.", "content"],
   ["3607686447", "Immersive Blackouts", "Cria quedas intermitentes de energia antes do corte definitivo.", "gameplay"],
   ["3599665197", "Immersive Water Shutoff", "Torna o corte de água gradual em vez de instantâneo.", "gameplay"],
-  ["3522680786", "Interactive Tailoring", "Transforma costura em minigame e concede XP pela atividade.", "gameplay"],
+  ["3522680786", "Interactive Tailoring", "Ao inspecionar uma roupa no inventário, abre uma visão por partes do corpo para remendar ou adicionar proteção com linha, agulha e tiras de pano, jeans ou couro. Acrescenta 12 XP ao remendo com peça combinada e 6 quando não combina.", "gameplay"],
   ["3414697768", "Jigga's Green Fire: Reborn", "Adiciona cultivo, processamento e consumo de cannabis.", "content"],
   ["2553809727", "KillCount", "Detalha eliminações por arma e categoria para quem gosta de estatística até no fim do mundo.", "interface"],
   ["3531611692", "Lethal Stealth", "Adiciona posturas táticas, incluindo opções para atirar deitado.", "gameplay"],
@@ -60,7 +60,7 @@ const mods = [
   ["3404956403", "N&C's Narcotics", "Adiciona substâncias, efeitos e sistemas relacionados a narcóticos.", "content"],
   ["3536052310", "Neat Building", "Substitui o menu de construção por uma interface mais organizada.", "interface"],
   ["3502080466", "Neat Crafting", "Substitui o menu de fabricação por uma interface mais compacta.", "interface"],
-  ["3783535220", "Neat Lockpicking", "Adiciona minigames para abrir portas, janelas e veículos trancados.", "gameplay"],
+  ["3783535220", "Neat Lockpicking", "Adiciona minigames de gazua, pé-de-cabra e hotwire para portas e veículos. A gazua artesanal pede chave de fenda, clipe e receita; Ladrão começa sabendo, e a revista de lockpicking ensina. Gazua de janela está desligada.", "gameplay"],
   ["3723726293", "Neat Rocco's UI", "Redesenha alguns menus do jogo para melhorar leitura e navegação.", "interface"],
   ["3508537032", "NeatUI Framework", "Biblioteca de interface usada pelos mods da família Neat.", "support"],
   ["3776262249", "Ping Items! Friends!", "Permite marcar itens, perigos e direções para outros jogadores.", "interface"],
@@ -69,7 +69,7 @@ const mods = [
   ["2847184718", "Proximity Inventory", "Reúne itens e recipientes próximos numa única visão de saque. Menos janela, mais pilhagem.", "interface"],
   ["2956146279", "Rain Cleans Blood", "Faz chuva e neve removerem gradualmente o sangue do ambiente. A natureza também faz faxina.", "content"],
   ["3635591071", "Realistic Dashboard & Gauges", "Adiciona medidores e luzes funcionais para o painel deixar de ser apenas decoração.", "vehicles"],
-  ["2142622992", "Repair Any Clothes", "Permite consertar mais tipos de roupa e equipamento de proteção.", "gameplay"],
+  ["2142622992", "Repair Any Clothes", "Dá tipo de couro a roupas que cobrem partes do corpo e não tinham tipo de tecido, permitindo costurá-las no painel normal. Não é reparo automático.", "gameplay"],
   ["3651954650", "SaucedCarts", "Adiciona carrinhos empurráveis para transportar carga.", "vehicles"],
   ["3399320470", "Serving Plates", "Permite servir porções de panelas e frigideiras em pratos.", "gameplay"],
   ["2815560151", "Share Annotations", "Permite compartilhar anotações do mapa por meio de papéis.", "interface"],
@@ -96,7 +96,7 @@ const mods = [
   ["2447729538", "Fluffy Hair", "Mantém formatos de cabelo mais naturais quando o personagem usa chapéu.", "content"],
   ["3783623999", "Livestock Panel Plus", "Mostra o estado dos animais de uma zona em uma tabela.", "interface"],
   ["3413150945", "More Damaged Objects", "Aumenta a variedade de objetos destruídos e danificados no mundo.", "content"],
-  ["3781533687", "True Sleep", "Permite dormir no multiplayer sem exigir que todos iniciem o sono juntos.", "gameplay"],
+  ["3781533687", "True Sleep", "Deixa quem dorme sozinho cochilar em velocidade acelerada até ~85% de disposição, sem pular o relógio. O salto de tempo da noite inteira ainda depende do grupo dormindo junto.", "gameplay"],
   ["3618557184", "Here Goes the Sun", "Melhora cores e transições de luz do nascer e do pôr do sol ao longo das estações.", "content"],
   ["3576056135", "Better Generator Info", "Mostra alcance, consumo e autonomia estimada do gerador antes de a luz apagar no pior momento.", "interface"],
   ["3785033563", "N3WO Map Overhaul", "Amplia os recursos e controles da interface do mapa.", "interface"],
@@ -112,6 +112,8 @@ const mods = [
   ["3776949545", "ClassicBows", "Adiciona arcos, bestas, flechas e virotes.", "content"],
   ["3779315249", "'87 Toyota Corolla AE92", "Adiciona o Toyota Corolla AE92 1987.", "vehicles"],
   ["3786993262", "Total Weight Rebalance", "Reequilibra o peso de itens do jogo para valores mais consistentes.", "gameplay"],
+  ["3790421500", "B42 Legacy Mod Polyfill & Compatibility Layer", "Camada técnica temporária para compatibilidade de mods antigos na Build 42.20.4. Não adiciona uma mecânica para jogar; continua ativa até a verificação de remoção planejada.", "support"],
+  ["3790469173", "JKB CleanUI - B42.20.4 Fix", "Correção de compatibilidade carregada depois do CleanUI para evitar erros enquanto a interface e os recipientes estão abrindo. Não adiciona uma tela nova.", "support"],
 ] as const;
 
 export default function ModsPage() {
@@ -132,8 +134,8 @@ export default function ModsPage() {
         <div className="mods-intro">
           <p>
             Aqui está o que cada item muda para quem joga. O servidor usa {mods.length} itens da
-            Workshop e 100 Mod IDs porque alguns itens carregam mais de um módulo. Não é erro de
-            matemática; é mod de Project Zomboid.
+            Workshop e 102 módulos porque alguns itens carregam mais de um. A coleção Steam tem 91
+            itens; na primeira conexão, o jogo baixa os dois complementos de compatibilidade que faltam.
           </p>
           <a className="button button-primary" href={collectionUrl} target="_blank" rel="noreferrer">
             Abrir coleção Steam
