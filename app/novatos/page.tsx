@@ -28,6 +28,47 @@ const anchors = [
   ["#duvidas", "Dúvidas"],
 ] as const;
 
+function GuideNavigation({ mobile = false }: { mobile?: boolean }) {
+  const links = (
+    <>
+      {anchors.map(([href, label], index) => (
+        <a href={href} key={href}>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          {label}
+        </a>
+      ))}
+      <a href="/veteranos">
+        <span>12</span>
+        Guia do veterano
+      </a>
+      <a href="/regras">
+        <span>13</span>
+        Regras do servidor
+      </a>
+      <a href="/mods">
+        <span>14</span>
+        Mods atuais
+      </a>
+    </>
+  );
+
+  if (mobile) {
+    return (
+      <details className="mobile-nav">
+        <summary>Índice do guia</summary>
+        <nav aria-label="Índice móvel do guia do novato">{links}</nav>
+      </details>
+    );
+  }
+
+  return (
+    <nav className="desktop-nav" aria-label="Índice do guia do novato">
+      <p>Índice</p>
+      {links}
+    </nav>
+  );
+}
+
 function SectionArt({ src, alt }: { src: string; alt: string }) {
   return (
     <figure className="section-art">
@@ -59,13 +100,17 @@ export default function NovatosPage() {
         </div>
       </header>
 
-      <main className="rules-page" id="novatos-conteudo">
-        <nav className="mods-index" aria-label="Seções deste guia">
-          {anchors.map(([href, label]) => (
-            <a href={href} key={href}>{label}</a>
-          ))}
-        </nav>
+      <GuideNavigation mobile />
 
+      <div className="page-shell guide-page-shell">
+        <aside>
+          <GuideNavigation />
+          <p className="side-note">
+            Comece pela seção que resolve sua dúvida. No celular, o mesmo índice abre logo acima do guia.
+          </p>
+        </aside>
+
+      <main className="rules-page guide-page" id="novatos-conteudo">
         <section id="primeira-hora">
           <p className="kicker">Antes de virar estatística</p>
           <h2>A primeira hora</h2>
@@ -635,6 +680,7 @@ export default function NovatosPage() {
           </div>
         </div>
       </main>
+      </div>
 
       <footer className="rules-footer">
         <div>

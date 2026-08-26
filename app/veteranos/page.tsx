@@ -24,6 +24,47 @@ const anchors = [
   ["#duvidas", "Dúvidas de veterano"],
 ] as const;
 
+function GuideNavigation({ mobile = false }: { mobile?: boolean }) {
+  const links = (
+    <>
+      {anchors.map(([href, label], index) => (
+        <a href={href} key={href}>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          {label}
+        </a>
+      ))}
+      <a href="/novatos">
+        <span>08</span>
+        Guia do novato
+      </a>
+      <a href="/regras">
+        <span>09</span>
+        Regras do servidor
+      </a>
+      <a href="/mods">
+        <span>10</span>
+        Mods atuais
+      </a>
+    </>
+  );
+
+  if (mobile) {
+    return (
+      <details className="mobile-nav">
+        <summary>Índice do guia</summary>
+        <nav aria-label="Índice móvel do guia do veterano">{links}</nav>
+      </details>
+    );
+  }
+
+  return (
+    <nav className="desktop-nav" aria-label="Índice do guia do veterano">
+      <p>Índice</p>
+      {links}
+    </nav>
+  );
+}
+
 export default function VeteranosPage() {
   return (
     <>
@@ -48,13 +89,17 @@ export default function VeteranosPage() {
         </div>
       </header>
 
-      <main className="rules-page" id="veteranos-conteudo">
-        <nav className="mods-index" aria-label="Seções deste guia">
-          {anchors.map(([href, label]) => (
-            <a href={href} key={href}>{label}</a>
-          ))}
-        </nav>
+      <GuideNavigation mobile />
 
+      <div className="page-shell guide-page-shell">
+        <aside>
+          <GuideNavigation />
+          <p className="side-note">
+            Use o índice para pular direto para o sistema que está segurando a campanha agora.
+          </p>
+        </aside>
+
+      <main className="rules-page guide-page" id="veteranos-conteudo">
         <section id="mundo">
           <p className="kicker">O mapa não fica mais simpático</p>
           <h2>A linha do tempo completa</h2>
@@ -385,6 +430,7 @@ export default function VeteranosPage() {
           </div>
         </div>
       </main>
+      </div>
 
       <footer className="rules-footer">
         <div>

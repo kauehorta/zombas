@@ -37,23 +37,22 @@ vez de repetir o texto):
 
 ### Padrão de layout adotado
 
-**Decisão.** `/novatos` e `/veteranos` usam o padrão visual de `/regras` e `/mods`
-(`.rules-hero` → `.rules-page` → `.rules-footer`), não o layout antigo da home
-(`.page-shell` com barra lateral fixa e `.guide-section` numeradas).
+**Decisão.** A home continua sendo um portal, mas seu conteúdo fica dentro de um contêiner central
+alinhado ao bloco de conexão. `/novatos` e `/veteranos` recuperam o `.page-shell`: índice lateral
+fixo em desktop e índice recolhível no topo em telas menores. `/regras` e `/mods` mantêm o padrão
+mais direto `.rules-hero` → `.rules-page` → `.rules-footer`.
 
-**Por quê.** Esse padrão já existia em duas páginas do site. Reviver o layout da home antiga pras
-duas páginas novas criaria dois sistemas de layout concorrentes em vez de um. Todos os componentes
-de conteúdo (`.critical`, `.tip`, `.checklist`, `.steps`, `.principles`, `.vehicle-grid`,
-`.two-column-copy`, `.fact-strip`, `.deadline`, `.social-grid`, `.section-art`) já eram
-independentes de `.guide-section` — encaixam sem CSS novo.
+**Por quê.** A validação visual em tela real mostrou dois problemas que a checagem de DOM não
+enxergava: o conteúdo da home começava no canto esquerdo, descolado dos blocos centrais acima, e a
+fileira de pills não sustentava a leitura de guias com 7 a 11 seções. O índice persistente devolve
+orientação durante o scroll sem transformar páginas curtas de referência em outro sistema.
 
-**Navegação interna.** As duas páginas novas usam `.mods-index` (a fileira de pills que já existia
-só na página de mods) como âncora de navegação rápida no topo, já que têm 7 a 11 seções e nenhuma
-barra lateral.
+**Navegação interna.** Nos dois guias, as seções, o guia complementar, Regras e Mods aparecem no
+mesmo índice. Em celular, ele fica recolhido para não competir com o conteúdo. `.mods-index`
+continua restrito às páginas curtas em que uma fileira de links basta.
 
-**Consequência aceita.** `.guide-section`, `.section-number`, `.page-shell`, `.desktop-nav`,
-`.mobile-nav`, `.side-note` ficaram sem uso em `app/globals.css`. Não removidos de propósito —
-CSS morto não quebra nada, e tirar around pode gerar um diff sem necessidade real.
+**Consequência.** `.page-shell`, `.desktop-nav`, `.mobile-nav` e `.side-note` voltaram a ter uso.
+`.guide-section` e `.section-number` seguem preservadas no CSS histórico, sem uso atual.
 
 ### Sem componente de header/footer compartilhado
 

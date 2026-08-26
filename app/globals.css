@@ -124,6 +124,31 @@ footer {
   margin-inline: auto;
 }
 
+.portal-content {
+  width: min(1180px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  padding: 4.5rem 0 5rem;
+}
+
+.portal-content .guide-grid {
+  width: 100%;
+  margin: 0;
+}
+
+.portal-content .mods-index {
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.portal-content .tip {
+  width: min(100%, 800px);
+  margin: 3rem auto 0;
+}
+
+.portal-content .tip > p {
+  margin: 1rem 0 0;
+}
+
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -1236,6 +1261,16 @@ footer nav {
   width: min(800px, calc(100% - 2.5rem));
   margin-inline: auto;
   padding: 4.5rem 0 5rem;
+}
+
+.guide-page-shell .rules-page {
+  width: auto;
+  margin: 0;
+  padding: 0 0 5rem;
+}
+
+.guide-page-shell .rules-page section {
+  scroll-margin-top: 4rem;
 }
 
 .rules-intro {

@@ -78,7 +78,7 @@ export default function Home() {
         </dl>
       </section>
 
-      <main id="conteudo">
+      <main className="portal-content" id="conteudo">
         <div className="vehicle-grid guide-grid" aria-label="Escolha seu guia">
           <article>
             <span>01</span>
