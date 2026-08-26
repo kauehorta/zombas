@@ -30,7 +30,7 @@ export default function Home() {
         </div>
 
         <div className="hero-copy">
-          <p className="eyebrow">Um portal, dois jeitos de entrar</p>
+          <p className="eyebrow">Guias para o Zombas</p>
           <h1>Fica vivo.<br />Fica junto.</h1>
           <p className="hero-lead">
             A casa está do jeito que quem morava nela deixou, meio arrumada, meio não. Isso não é
